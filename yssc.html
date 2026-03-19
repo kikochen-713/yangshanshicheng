@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绍兴羊山石城 - 浙东奇景，千年石城</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 自定义配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5A2B', // 石木色为主色调
+                        secondary: '#4F7942', // 绿色为辅色
+                        dark: '#2C3639',
+                        light: '#F5F5F0'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            }
+            .transition-custom {
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-white">
+    <!-- 导航栏 -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 shadow-sm transition-custom">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold text-primary flex items-center">
+                <i class="fa-solid fa-mountain-sun mr-2"></i>
+                <span>羊山石城</span>
+            </a>
+
+            <!-- 桌面端导航 -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="font-medium hover:text-primary transition-custom">首页</a>
+                <a href="#about" class="font-medium hover:text-primary transition-custom">石城简介</a>
+                <a href="#scenic" class="font-medium hover:text-primary transition-custom">景点特色</a>
+                <a href="#guide" class="font-medium hover:text-primary transition-custom">游玩指南</a>
+                <a href="#contact" class="font-medium hover:text-primary transition-custom">联系咨询</a>
+            </nav>
+
+            <!-- 移动端汉堡菜单 -->
+            <button id="menuBtn" class="md:hidden text-dark text-xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#home" class="font-medium hover:text-primary transition-custom py-2">首页</a>
+                <a href="#about" class="font-medium hover:text-primary transition-custom py-2">石城简介</a>
+                <a href="#scenic" class="font-medium hover:text-primary transition-custom py-2">景点特色</a>
+                <a href="#guide" class="font-medium hover:text-primary transition-custom py-2">游玩指南</a>
+                <a href="#contact" class="font-medium hover:text-primary transition-custom py-2">联系咨询</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首页轮播区 -->
+    <section id="home" class="pt-20">
+        <div class="relative h-[80vh] min-h-[500px] overflow-hidden">
+            <!-- 轮播图1 - 羊山石城主景 -->
+            <div class="carousel-item absolute inset-0 bg-cover bg-center" style="background-image: url('https://picsum.photos/1920/1080?random=10');">
+                <div class="absolute inset-0 bg-dark/50 flex items-center">
+                    <div class="container mx-auto px-4 text-white max-w-3xl">
+                        <h1 class="text-[clamp(2rem,5vw,4rem)] font-bold mb-4 text-shadow">绍兴羊山石城</h1>
+                        <p class="text-[clamp(1rem,2vw,1.25rem)] mb-8 text-shadow">浙东奇景 · 千年采石文化的活化石</p>
+                        <a href="#guide" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-medium transition-custom">
+                            游玩指南 <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 石城简介 -->
+    <section id="about" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">石城简介</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">千年采石史，铸就独特的石宕景观，绍兴城北的地质奇观</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://picsum.photos/800/600?random=11" alt="羊山石城全景" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">千年采石 历史沿革</h3>
+                    <p class="text-gray-600 mb-6">
+                        羊山石城位于浙江省绍兴市柯桥区齐贤街道，地处杭州湾南岸，距绍兴市区约15公里。自隋唐开始采石，至清代达到鼎盛，历经千年开采，形成了如今独特的石宕、石峰、石壁景观。
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        这里不仅是绍兴重要的建筑石材供应地，更因独特的喀斯特地貌和采石文化，成为浙东地区独树一帜的自然与人文景观，被誉为"江南小桂林"，也是多部影视剧的取景地。
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-calendar-check text-primary text-xl mr-3"></i>
+                            <span>隋唐始采石</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-mountain text-primary text-xl mr-3"></i>
+                            <span>面积约800亩</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-film text-primary text-xl mr-3"></i>
+                            <span>影视取景地</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-location-dot text-primary text-xl mr-3"></i>
+                            <span>绍兴柯桥区</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 景点特色 -->
+    <section id="scenic" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">景点特色</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">鬼斧神工的石景，每一处都诉说着千年的采石故事</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 特色1：石峰景观 -->
+                <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-custom overflow-hidden">
+                    <div class="h-48 bg-primary/10 flex items-center justify-center">
+                        <i class="fa-solid fa-mountain-city text-6xl text-primary"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">石峰林立</h3>
+                        <p class="text-gray-600 mb-4">数十座石峰拔地而起，最高达百余米，形态各异，有的如剑指天，有的如兽盘踞，蔚为壮观。</p>
+                        <a href="#guide" class="text-primary font-medium hover:underline">
+                            查看详情 <i class="fa-solid fa-angle-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 特色2：古采石宕 -->
+                <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-custom overflow-hidden">
+                    <div class="h-48 bg-primary/10 flex items-center justify-center">
+                        <i class="fa-solid fa-pickaxe text-6xl text-primary"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">古采石宕</h3>
+                        <p class="text-gray-600 mb-4">保存完好的古采石宕遗址，清晰可见的采石痕迹，见证了古代工匠的智慧与技艺。</p>
+                        <a href="#guide" class="text-primary font-medium hover:underline">
+                            查看详情 <i class="fa-solid fa-angle-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 特色3：摩崖石刻 -->
+                <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-custom overflow-hidden">
+                    <div class="h-48 bg-primary/10 flex items-center justify-center">
+                        <i class="fa-solid fa-pen-fancy text-6xl text-primary"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">摩崖石刻</h3>
+                        <p class="text-gray-600 mb-4">历代文人墨客留下的摩崖题刻，书法与石景相映成趣，增添了浓厚的文化底蕴。</p>
+                        <a href="#guide" class="text-primary font-medium hover:underline">
+                            查看详情 <i class="fa-solid fa-angle-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 特色图片展示 -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
+                <img src="https://picsum.photos/400/300?random=12" alt="羊山石城石峰" class="rounded-lg shadow-md w-full h-48 object-cover hover:scale-105 transition-custom">
+                <img src="https://picsum.photos/400/300?random=13" alt="古采石宕" class="rounded-lg shadow-md w-full h-48 object-cover hover:scale-105 transition-custom">
+                <img src="https://picsum.photos/400/300?random=14" alt="摩崖石刻" class="rounded-lg shadow-md w-full h-48 object-cover hover:scale-105 transition-custom">
+                <img src="https://picsum.photos/400/300?random=15" alt="石城水景" class="rounded-lg shadow-md w-full h-48 object-cover hover:scale-105 transition-custom">
+            </div>
+        </div>
+    </section>
+
+    <!-- 游玩指南 -->
+    <section id="guide" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">游玩指南</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">实用游玩信息，让你的羊山石城之旅更顺畅</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- 基本信息 -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fa-solid fa-info-circle text-primary mr-3"></i> 基本信息
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 rounded-full p-2 mr-4 mt-1">
+                                <i class="fa-solid fa-location-dot text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">地理位置</h4>
+                                <p class="text-gray-600">浙江省绍兴市柯桥区齐贤街道羊山风景区</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 rounded-full p-2 mr-4 mt-1">
+                                <i class="fa-solid fa-clock text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">开放时间</h4>
+                                <p class="text-gray-600">全年开放 08:00 - 17:00（16:30停止入园）</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 rounded-full p-2 mr-4 mt-1">
+                                <i class="fa-solid fa-ticket text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">门票价格</h4>
+                                <p class="text-gray-600">成人票 20元/人，学生票 10元/人，60岁以上老人免票</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 rounded-full p-2 mr-4 mt-1">
+                                <i class="fa-solid fa-phone text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">咨询电话</h4>
+                                <p class="text-gray-600">0575-8518XXXX（示例号码）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 交通指南 -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fa-solid fa-bus text-primary mr-3"></i> 交通指南
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 rounded-full p-2 mr-4 mt-1">
+                                <i class="fa-solid fa-car text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">自驾前往</h4>
+                                <p class="text-gray-600">绍兴市区：沿群贤路向东，转羊山路即可到达，车程约20分钟<br>杭州市区：杭甬高速柯桥出口下，沿金柯桥大道向北，车程约1小时</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 rounded-full p-2 mr-4 mt-1">
+                                <i class="fa-solid fa-bus-simple text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">公共交通</h4>
+                                <p class="text-gray-600">绍兴市区：乘坐18路、807路、815路至羊山公园站下车<br>柯桥城区：乘坐808路、818路至羊山石城站下车</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 rounded-full p-2 mr-4 mt-1">
+                                <i class="fa-solid fa-lightbulb text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">游玩建议</h4>
+                                <p class="text-gray-600">建议游玩时长：2-3小时<br>最佳游玩季节：春秋两季（3-5月、9-11月）<br>注意事项：部分路段台阶较陡，建议穿舒适运动鞋</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系咨询 -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">联系咨询</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">有任何问题或咨询，欢迎随时联系我们</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- 联系信息 -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">联系方式</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 rounded-full p-3 mr-4">
+                                <i class="fa-solid fa-map-marker-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">地址</h4>
+                                <p class="text-gray-600">浙江省绍兴市柯桥区齐贤街道羊山风景区管理处</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 rounded-full p-3 mr-4">
+                                <i class="fa-solid fa-phone text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">咨询电话</h4>
+                                <p class="text-gray-600">0575-8518XXXX（工作时间：8:00-17:00）</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 rounded-full p-3 mr-4">
+                                <i class="fa-solid fa-envelope text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">邮箱</h4>
+                                <p class="text-gray-600">yangshanshicheng@163.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4">官方公众号</h4>
+                        <div class="bg-white p-4 rounded-lg shadow-md inline-block">
+                            <p class="text-center text-gray-600 mb-2">扫码关注获取更多信息</p>
+                            <img src="https://picsum.photos/150/150?random=20" alt="公众号二维码" class="w-40 h-40 rounded">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 咨询表单 -->
+                <div>
+                    <form id="contactForm" class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">在线咨询</h3>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2">姓名</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="请输入您的姓名">
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 mb-2">联系电话</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="请输入您的联系电话">
+                        </div>
+                        <div class="mb-4">
+                            <label for="question" class="block text-gray-700 mb-2">咨询类型</label>
+                            <select id="question" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                                <option value="">请选择咨询类型</option>
+                                <option value="ticket">门票咨询</option>
+                                <option value="visit">游玩咨询</option>
+                                <option value="group">团队预约</option>
+                                <option value="other">其他问题</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 mb-2">咨询内容</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="请输入您的咨询内容"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-custom">
+                            提交咨询 <i class="fa-solid fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fa-solid fa-mountain-sun mr-2"></i> 羊山石城
+                    </h3>
+                    <p class="text-gray-400 mb-4">
+                        千年采石文化，独特石宕景观<br>绍兴城北的自然与人文瑰宝
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">快速链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-custom">首页</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-custom">石城简介</a></li>
+                        <li><a href="#scenic" class="text-gray-400 hover:text-white transition-custom">景点特色</a></li>
+                        <li><a href="#guide" class="text-gray-400 hover:text-white transition-custom">游玩指南</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">实用信息</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">门票预订</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">团队接待</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">景区公告</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-custom">游客须知</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">联系方式</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-map-marker-alt text-primary mt-1 mr-2"></i>
+                            <span class="text-gray-400">绍兴市柯桥区齐贤街道羊山风景区</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-phone text-primary mt-1 mr-2"></i>
+                            <span class="text-gray-400">0575-8518XXXX</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-envelope text-primary mt-1 mr-2"></i>
+                            <span class="text-gray-400">yangshanshicheng@163.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>© 2025 绍兴羊山石城风景区 版权所有 | 浙ICP备XXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // 切换图标
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                }
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // 减去导航栏高度
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'shadow');
+                header.classList.remove('py-3');
+            } else {
+                header.classList.add('py-3');
+                header.classList.remove('py-2', 'shadow');
+            }
+        });
+
+        // 表单提交处理
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // 获取表单数据
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // 简单验证
+            if (!name || !phone || !message) {
+                alert('请填写必填字段！');
+                return;
+            }
+            
+            // 模拟提交成功
+            alert('咨询提交成功！我们将尽快与您联系。');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
