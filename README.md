@@ -242,7 +242,7 @@
                         <div class="bg-stone-50 rounded-lg p-4 border border-stone-100 hover:shadow-hover transition-all cursor-pointer group" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})">
                             <div class="flex items-center mb-2">
                                 <span class="text-stone-500 text-xl mr-3 group-hover:text-accent-600 transition-colors">
-                                    <i class="fa-solid fa-calendar-alt"></i>
+                                    <i class="fa-solid fa-calendar"></i>
                                 </span>
                                 <h4 class="font-medium text-stone-800">隋唐始采石</h4>
                             </div>
@@ -275,7 +275,7 @@
                         <div class="bg-stone-50 rounded-lg p-4 border border-stone-100 hover:shadow-hover transition-all cursor-pointer group" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
                             <div class="flex items-center mb-2">
                                 <span class="text-stone-500 text-xl mr-3 group-hover:text-accent-600 transition-colors">
-                                    <i class="fa-solid fa-map-marker-alt"></i>
+                                    <i class="fa-solid fa-map-marker"></i>
                                 </span>
                                 <h4 class="font-medium text-stone-800">绍兴柯桥区</h4>
                             </div>
@@ -356,7 +356,8 @@
                 <h3 class="text-xl font-semibold text-stone-800 mb-2">石刻记忆</h3>
                 <p class="text-ink-500">镌刻心声，留存印记
 写下你的留言与感悟，让旅途印记在此长存，与万千同路人共筑石刻记忆。</p>
-                <a href="#guide" class="inline-block mt-4 text-stone-500 font-medium hover:text-stone-600 cursor-pointer">
+                <!-- 修改此处：href改为#contact，添加onclick事件 -->
+                <a href="#contact" class="inline-block mt-4 text-stone-500 font-medium hover:text-stone-600 cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
                     游客留言入口<i class="fa-solid fa-arrow-right ml-2"></i>
                 </a>
             </div>
@@ -388,7 +389,7 @@
                     <div class="space-y-6">
                         <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
                             <div class="bg-stone-100 rounded-full p-2 mr-4 mt-1">
-                                <i class="fa-solid fa-map-marker-alt text-stone-500"></i>
+                                <i class="fa-solid fa-map-marker text-stone-500"></i>
                             </div>
                             <div>
                                 <h4 class="font-medium text-stone-800 mb-1">地理位置</h4>
@@ -408,7 +409,7 @@
                         
                         <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
                             <div class="bg-stone-100 rounded-full p-2 mr-4 mt-1">
-                                <i class="fa-solid fa-ticket-alt text-stone-500"></i>
+                                <i class="fa-solid fa-ticket text-stone-500"></i>
                             </div>
                             <div>
                                 <h4 class="font-medium text-stone-800 mb-1">门票价格</h4>
@@ -503,7 +504,7 @@
                     <div class="space-y-6">
                         <div class="flex items-start cursor-pointer" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
                             <div class="bg-stone-100 rounded-full p-3 mr-4">
-                                <i class="fa-solid fa-map-marker-alt text-stone-500 text-xl"></i>
+                                <i class="fa-solid fa-map-marker text-stone-500 text-xl"></i>
                             </div>
                             <div>
                                 <h4 class="font-medium text-stone-800 mb-1">景区地址</h4>
@@ -634,7 +635,7 @@
                     <h3 class="text-lg font-medium mb-4 text-stone-200">联系我们</h3>
                     <ul class="space-y-2 text-sm">
                         <li class="flex items-start cursor-pointer" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                            <i class="fa-solid fa-map-marker-alt text-stone-400 mt-1 mr-2"></i>
+                            <i class="fa-solid fa-map-marker text-stone-400 mt-1 mr-2"></i>
                             <span class="text-stone-400">绍兴市柯桥区齐贤街道羊山风景区</span>
                         </li>
                         <li class="flex items-start cursor-pointer" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
@@ -701,6 +702,7 @@
                 const currentScrollPos = window.pageYOffset;
                 
                 if (header) {
+                    // 导航栏样式变化
                     if (currentScrollPos > 50) {
                         header.classList.add('py-2', 'shadow-md');
                         header.classList.remove('py-4');
@@ -709,20 +711,24 @@
                         header.classList.remove('py-2', 'shadow-md');
                     }
                     
-                    // 导航栏当前位置高亮
+                    // 导航栏当前位置高亮 - 优化逻辑
                     const sections = document.querySelectorAll('section[id]');
                     const navLinks = document.querySelectorAll('.nav-link');
                     
+                    // 重置所有链接样式
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-stone-500', 'border-stone-500');
+                        link.classList.add('text-ink-600', 'border-transparent');
+                    });
+                    
+                    // 找到当前可视区域的section并高亮对应链接
                     sections.forEach(section => {
-                        const sectionTop = section.offsetTop - 100;
+                        const sectionTop = section.offsetTop - 120;
                         const sectionHeight = section.offsetHeight;
                         const sectionId = section.getAttribute('id');
                         
                         if (currentScrollPos >= sectionTop && currentScrollPos < sectionTop + sectionHeight) {
                             navLinks.forEach(link => {
-                                link.classList.remove('text-stone-500', 'border-stone-500');
-                                link.classList.add('text-ink-600', 'border-transparent');
-                                
                                 if (link.getAttribute('href') === `#${sectionId}`) {
                                     link.classList.remove('text-ink-600', 'border-transparent');
                                     link.classList.add('text-stone-500', 'border-stone-500');
@@ -733,16 +739,23 @@
                     
                     lastScrollPos = currentScrollPos;
                 }
-            }, 10);
+            }, 50); // 缩短防抖时间，提升响应性
             
             window.addEventListener('scroll', handleScroll);
 
-            // 平滑滚动（增强版，支持所有可点击元素）
+            // 平滑滚动 - 统一处理所有跳转
             document.querySelectorAll('a[href^="#"], [onclick*="scrollIntoView"]').forEach(element => {
                 element.addEventListener('click', function (e) {
                     // 如果是a标签，阻止默认行为
                     if (this.tagName === 'A') {
                         e.preventDefault();
+                        
+                        // 获取目标ID并滚动
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
                     }
                     
                     // 关闭移动端菜单（如果打开）
@@ -755,19 +768,22 @@
                 });
             });
 
-            // 表单提交处理 - 增强验证
+            // 表单提交处理 - 增强验证和反馈
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', (e) => {
                     e.preventDefault();
                     
+                    // 验证表单
                     if (!contactForm.checkValidity()) {
+                        // 显示原生验证提示
                         contactForm.reportValidity();
                         return;
                     }
                     
                     const submitBtn = contactForm.querySelector('button[type="submit"]');
                     if (submitBtn) {
+                        // 禁用按钮并显示加载状态
                         submitBtn.disabled = true;
                         submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> 提交中...';
                         
@@ -775,25 +791,40 @@
                         setTimeout(() => {
                             // 创建成功提示
                             const successAlert = document.createElement('div');
-                            successAlert.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+                            successAlert.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in';
                             successAlert.textContent = '您的咨询已提交成功！我们将在1-2个工作日内与您联系。';
                             document.body.appendChild(successAlert);
                             
+                            // 添加动画样式
+                            successAlert.style.transition = 'opacity 0.5s ease-in-out';
+                            
                             // 3秒后移除提示
                             setTimeout(() => {
-                                successAlert.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+                                successAlert.style.opacity = '0';
                                 setTimeout(() => successAlert.remove(), 500);
                             }, 3000);
                             
+                            // 重置表单并恢复按钮状态
                             contactForm.reset();
                             submitBtn.disabled = false;
                             submitBtn.innerHTML = '提交咨询 <i class="fa-solid fa-paper-plane ml-2"></i>';
                         }, 1200);
                     }
                 });
+                
+                // 实时验证手机号
+                const phoneInput = document.getElementById('phone');
+                if (phoneInput) {
+                    phoneInput.addEventListener('input', function() {
+                        const phonePattern = /^1[3-9]\d{9}$/;
+                        if (this.value && !phonePattern.test(this.value)) {
+                            this.setCustomValidity('请输入有效的11位手机号码');
+                        } else {
+                            this.setCustomValidity('');
+                        }
+                    });
+                }
             }
-
-            // 移除图片加载相关代码（因为已无图片）
         });
     </script>
 </body>
