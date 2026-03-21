@@ -353,10 +353,11 @@
             <!-- 移除所有图片画廊 -->
             <div class="bg-stone-100 rounded-xl p-8 text-center mb-8">
                 <i class="fa-solid fa-images text-stone-400 text-5xl mb-4"></i>
-                <h3 class="text-xl font-semibold text-stone-800 mb-2">石窟胜景图集</h3>
-                <p class="text-ink-500">羊山石城拥有众多精美石窟景观，欢迎实地探访观赏</p>
+                <h3 class="text-xl font-semibold text-stone-800 mb-2">石刻记忆</h3>
+                <p class="text-ink-500">镌刻心声，留存印记
+写下你的留言与感悟，让旅途印记在此长存，与万千同路人共筑石刻记忆。</p>
                 <a href="#guide" class="inline-block mt-4 text-stone-500 font-medium hover:text-stone-600 cursor-pointer">
-                    查看游玩指南 <i class="fa-solid fa-arrow-right ml-2"></i>
+                    游客留言入口<i class="fa-solid fa-arrow-right ml-2"></i>
                 </a>
             </div>
         </div>
@@ -533,8 +534,8 @@
 
                     <!-- 移除公众号二维码图片，替换为文字 -->
                     <div class="bg-white rounded-xl shadow-elegant p-6 inline-block border border-stone-100 cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-                        <h4 class="font-medium text-stone-800 mb-3 text-center">官方公众号</h4>
-                        <p class="text-ink-500 text-sm text-center mb-3">扫码关注，获取更多景区资讯</p>
+                        <h4 class="font-medium text-stone-800 mb-3 text-center">景区AR导航</h4>
+                        <p class="text-ink-500 text-sm text-center mb-3">扫码关注，开启探索之旅吧！</p>
                         <div class="w-40 h-40 bg-stone-100 rounded mx-auto flex items-center justify-center">
                             <i class="fa-solid fa-qrcode text-stone-400 text-5xl"></i>
                         </div>
@@ -574,7 +575,7 @@
                         </div>
                         
                         <div>
-                            <label for="message" class="block text-ink-700 mb-2 font-medium">咨询内容 <span class="text-accent-600">*</span></label>
+                            <label for="message" class="block text-ink-700 mb-2 font-medium">留言内容 <span class="text-accent-600">*</span></label>
                             <textarea id="message" rows="5" 
                                       class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-500 focus:border-transparent transition-all resize-none" 
                                       placeholder="请详细描述您的问题或需求" required></textarea>
