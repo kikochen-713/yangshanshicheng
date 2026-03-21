@@ -132,6 +132,49 @@
                 }
             }
         }
+        
+        /* 核心修改：设置页面全屏基础样式 */
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        /* 确保主要容器铺满宽度 */
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        /* 调整各区块为全屏高度/宽度 */
+        section {
+            width: 100vw;
+            min-height: 100vh;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            margin: 0 !important;
+        }
+        
+        /* 修复header固定定位导致的内容偏移 */
+        body {
+            padding-top: 88px;
+        }
+        
+        /* 调整hero区域为全屏 */
+        #home {
+            height: calc(100vh - 88px);
+            min-height: calc(100vh - 88px);
+            padding-top: 0 !important;
+        }
+        
+        #home > div {
+            height: 100%;
+            min-height: 100%;
+        }
     </style>
 </head>
 <body class="font-serif text-ink-700 bg-stone-50 antialiased">
@@ -172,8 +215,8 @@
     </header>
 
     <!-- 首页hero区 - 视觉升级（移除背景图） -->
-    <section id="home" class="pt-24 scroll-mt-header">
-        <div class="relative h-[90vh] min-h-[600px] overflow-hidden bg-stone-200">
+    <section id="home" class="scroll-mt-header">
+        <div class="relative h-full overflow-hidden bg-stone-200">
             <!-- 移除背景图，保留渐变遮罩和布局 -->
             <div class="absolute inset-0 bg-gradient-overlay"></div>
             
@@ -201,8 +244,8 @@
     </section>
 
     <!-- 石城溯源 - 内容和视觉双重升级（移除图片） -->
-    <section id="about" class="py-20 bg-white scroll-mt-header content-auto">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" class="bg-white scroll-mt-header content-auto">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <!-- 标题区 - 精致化 -->
             <div class="text-center mb-16">
                 <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-stone-800 mb-4">石城溯源</h2>
@@ -288,8 +331,8 @@
     </section>
 
     <!-- 石窟胜景 - 画廊式展示升级（移除所有图片） -->
-    <section id="scenic" class="py-20 bg-stone-50 scroll-mt-header content-auto">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="scenic" class="bg-stone-50 scroll-mt-header content-auto">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <!-- 标题区 -->
             <div class="text-center mb-16">
                 <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-stone-800 mb-4">石窟胜景</h2>
@@ -365,8 +408,8 @@
     </section>
 
     <!-- 游赏指南 - 精致卡片设计（全部可点击跳转） -->
-    <section id="guide" class="py-20 bg-white scroll-mt-header content-auto">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="guide" class="bg-white scroll-mt-header content-auto">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <!-- 标题区 -->
             <div class="text-center mb-16">
                 <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-stone-800 mb-4">游赏指南</h2>
@@ -485,8 +528,8 @@
     </section>
 
     <!-- 预约咨询 - 精致表单设计（全部可点击跳转） -->
-    <section id="contact" class="py-20 bg-stone-50 scroll-mt-header content-auto">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" class="bg-stone-50 scroll-mt-header content-auto">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <!-- 标题区 -->
             <div class="text-center mb-16">
                 <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-stone-800 mb-4">预约咨询</h2>
@@ -593,7 +636,7 @@
     </section>
 
     <!-- 页脚 - 精致化设计（所有链接可点击跳转） -->
-    <footer class="bg-stone-800 text-white py-12">
+    <footer class="bg-stone-800 text-white py-12 w-full">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <!-- 品牌区 -->
