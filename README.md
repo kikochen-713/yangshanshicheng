@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>羊山石城 - 浙东千年石境，江南石窟奇观</title>
     <!-- 性能优化：预加载关键资源 -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -91,14 +91,9 @@
             .scroll-mt-header {
                 scroll-margin-top: 88px;
             }
-            .image-hover-zoom {
-                overflow: hidden;
-            }
-            .image-hover-zoom img {
-                transition: transform 0.5s ease;
-            }
-            .image-hover-zoom:hover img {
-                transform: scale(1.05);
+            .full-vh-minus-header {
+                min-height: calc(100vh - 88px);
+                height: calc(100vh - 88px);
             }
             /* 自定义滚动条 */
             ::-webkit-scrollbar {
@@ -114,12 +109,12 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #73624E;
             }
-            /* 图片加载占位样式 - 已移除图片，保留样式但不使用 */
+            /* 图片加载占位样式 */
             .img-placeholder {
                 background-color: #F1EEE9;
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23C8BCAA' fill-opacity='0.2'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             }
-            /* 骨架屏加载效果 - 已移除图片，保留样式但不使用 */
+            /* 骨架屏加载效果 */
             .skeleton {
                 animation: skeleton-loading 1.5s linear infinite alternate;
             }
@@ -131,32 +126,211 @@
                     background-color: rgba(168, 152, 131, 0.3);
                 }
             }
+            /* 图片悬停放大效果 */
+            .img-hover-zoom {
+                overflow: hidden;
+            }
+            .img-hover-zoom img {
+                transition: transform 0.5s ease;
+            }
+            .img-hover-zoom:hover img {
+                transform: scale(1.05);
+            }
+            /* 图片画廊预览效果 */
+            .gallery-item {
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .gallery-item:hover {
+                transform: translateY(-5px);
+            }
+            /* 图片查看器样式 */
+            .lightbox {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                z-index: 100;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s ease;
+            }
+            .lightbox.active {
+                opacity: 1;
+                pointer-events: all;
+            }
+            .lightbox-content {
+                max-width: 90%;
+                max-height: 90vh;
+                position: relative;
+            }
+            .lightbox-img {
+                max-width: 100%;
+                max-height: 90vh;
+                border: 4px solid white;
+                border-radius: 4px;
+            }
+            .lightbox-close {
+                position: absolute;
+                top: -40px;
+                right: 0;
+                color: white;
+                font-size: 2rem;
+                cursor: pointer;
+                transition: transform 0.2s ease;
+            }
+            .lightbox-close:hover {
+                transform: scale(1.1);
+            }
+            .lightbox-nav {
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                transform: translateY(-50%);
+                padding: 0 20px;
+            }
+            .lightbox-btn {
+                color: white;
+                font-size: 2.5rem;
+                background: rgba(0, 0, 0, 0.5);
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                border: none;
+            }
+            .lightbox-btn:hover {
+                background: rgba(0, 0, 0, 0.8);
+                transform: scale(1.1);
+            }
+            /* 轮播图样式 */
+            .carousel-container {
+                position: relative;
+                overflow: hidden;
+                border-radius: 8px;
+            }
+            .carousel-slides {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+                width: 100%;
+            }
+            .carousel-slide {
+                min-width: 100%;
+                height: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 2rem;
+                color: white;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+            }
+            .carousel-slide::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1;
+            }
+            .carousel-content {
+                position: relative;
+                z-index: 2;
+            }
+            .carousel-dots {
+                position: absolute;
+                bottom: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 0.5rem;
+                z-index: 3;
+            }
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.5);
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+            .carousel-dot.active {
+                background: white;
+            }
+            .carousel-control {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 3;
+                transition: background 0.3s ease;
+            }
+            .carousel-control:hover {
+                background: rgba(0, 0, 0, 0.8);
+            }
+            .carousel-prev {
+                left: 1rem;
+            }
+            .carousel-next {
+                right: 1rem;
+            }
         }
         
-        /* 核心修改：设置页面全屏基础样式 */
+        /* 基础全屏样式设置 */
         html, body {
             height: 100%;
             width: 100%;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            box-sizing: border-box;
         }
         
-        /* 确保主要容器铺满宽度 */
+        *, *::before, *::after {
+            box-sizing: inherit;
+        }
+        
+        /* 容器适配 - 兼顾全屏和内容可读性 */
         .container {
             width: 100%;
             max-width: 100%;
-            padding-left: 1rem;
-            padding-right: 1rem;
+            padding-left: clamp(1rem, 3vw, 2.5rem);
+            padding-right: clamp(1rem, 3vw, 2.5rem);
+            margin: 0 auto;
         }
         
-        /* 调整各区块为全屏高度/宽度 */
+        /* 区块基础样式 - 自适应高度 */
         section {
-            width: 100vw;
+            width: 100%;
             min-height: 100vh;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-            margin: 0 !important;
+            padding-top: 0;
+            padding-bottom: 0;
+            display: flex;
+            align-items: center;
         }
         
         /* 修复header固定定位导致的内容偏移 */
@@ -164,16 +338,66 @@
             padding-top: 88px;
         }
         
-        /* 调整hero区域为全屏 */
+        /* 首页Hero区域特殊处理 */
         #home {
-            height: calc(100vh - 88px);
             min-height: calc(100vh - 88px);
-            padding-top: 0 !important;
+            height: calc(100vh - 88px);
+            align-items: stretch;
         }
         
         #home > div {
             height: 100%;
-            min-height: 100%;
+            width: 100%;
+        }
+        
+        /* 内容容器垂直间距优化 */
+        .content-wrapper {
+            padding-top: clamp(2rem, 5vw, 4rem);
+            padding-bottom: clamp(2rem, 5vw, 4rem);
+            width: 100%;
+        }
+        
+        /* 响应式调整 - 移动端优化 */
+        @media (max-width: 768px) {
+            section {
+                min-height: auto;
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            
+            #home {
+                min-height: calc(100vh - 88px);
+                height: calc(100vh - 88px);
+            }
+            
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .md\\:grid-cols-2, .md\\:grid-cols-3, .md\\:grid-cols-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            /* 移动端图片画廊适配 */
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            .lightbox-btn {
+                font-size: 1.5rem;
+                width: 40px;
+                height: 40px;
+            }
+            
+            /* 移动端轮播适配 */
+            .carousel-slide {
+                height: 180px;
+                padding: 1rem;
+            }
+            .carousel-control {
+                width: 30px;
+                height: 30px;
+            }
         }
     </style>
 </head>
@@ -214,20 +438,25 @@
         </div>
     </header>
 
-    <!-- 首页hero区 - 视觉升级（移除背景图） -->
+    <!-- 首页hero区 - 添加羊山石境背景图并全屏铺满 -->
     <section id="home" class="scroll-mt-header">
-        <div class="relative h-full overflow-hidden bg-stone-200">
-            <!-- 移除背景图，保留渐变遮罩和布局 -->
+        <div class="relative w-full h-full overflow-hidden">
+            <!-- 核心修改：添加背景图片并设置全屏铺满 -->
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+                 style="background-image: url('https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/21c082c384034d74b6f605a6944f4eee.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202603221824043221C6ED1C224EB2C622&rrcfp=8a172a1a&x-expires=1774779844&x-signature=JxThDzWnX8R7hspqeFv6GrIwjS8%3D'); 
+                        filter: brightness(0.9);">
+            </div>
+            <!-- 渐变遮罩层，提升文字可读性 -->
             <div class="absolute inset-0 bg-gradient-overlay"></div>
             
             <!-- 文字内容 - 精致排版 -->
             <div class="relative h-full flex items-center justify-center text-center px-4">
-                <div class="max-w-4xl">
-                    <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-bold text-white mb-6 text-shadow-elegant leading-tight">
+                <div class="max-w-4xl w-full">
+                    <h1 class="text-[clamp(2rem,8vw,4.5rem)] font-bold text-white mb-6 text-shadow-elegant leading-tight">
                         羊山石境<br>
-                        <span class="text-[clamp(1.5rem,3vw,2.5rem)] font-medium opacity-90">浙东千年石窟 · 江南采石奇观</span>
+                        <span class="text-[clamp(1.2rem,4vw,2.5rem)] font-medium opacity-90">浙东千年石窟 · 江南采石奇观</span>
                     </h1>
-                    <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 mb-8 max-w-2xl mx-auto text-shadow-elegant">
+                    <p class="text-[clamp(1rem,3vw,1.25rem)] text-white/90 mb-8 max-w-2xl mx-auto text-shadow-elegant">
                         始于隋唐，盛于明清，千年采石史铸就的地质瑰宝，融自然奇观与人文底蕴于一体
                     </p>
                     <a href="#guide" class="inline-block bg-stone-500 hover:bg-stone-600 text-white px-8 py-3 rounded-lg font-medium transition-all hover:shadow-lg transform hover:-translate-y-1 cursor-pointer">
@@ -243,31 +472,38 @@
         </div>
     </section>
 
-    <!-- 石城溯源 - 内容和视觉双重升级（移除图片） -->
+    <!-- 石城溯源 - 内容和视觉双重升级（添加摩崖石刻背景图） -->
     <section id="about" class="bg-white scroll-mt-header content-auto">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="container content-wrapper">
             <!-- 标题区 - 精致化 -->
-            <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-stone-800 mb-4">石城溯源</h2>
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-[clamp(1.75rem,5vw,2.5rem)] font-bold text-stone-800 mb-4">石城溯源</h2>
                 <div class="w-16 h-1 bg-stone-500 mx-auto mb-6"></div>
                 <p class="max-w-2xl mx-auto text-ink-500 text-lg">
                     千年采石史，一斧一凿间，铸就浙东独有的石宕石窟景观
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <!-- 移除图片区，替换为文字占位 -->
-                <div class="rounded-xl overflow-hidden shadow-elegant bg-stone-100 h-[400px] flex items-center justify-center">
-                    <div class="text-center p-8">
-                        <i class="fa-solid fa-landmark text-stone-400 text-6xl mb-4"></i>
-                        <h3 class="text-xl font-semibold text-stone-700">羊山石城摩崖石刻</h3>
-                        <p class="text-ink-500 mt-2">千年采石历史的珍贵见证</p>
+            <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <!-- 核心修改：替换为摩崖石刻照片并设置铺满背景 -->
+                <div class="rounded-xl overflow-hidden shadow-elegant h-[400px] flex items-center justify-center w-full relative">
+                    <!-- 摩崖石刻背景图 - 铺满整个容器 -->
+                    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+                         style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/30fc0d332fe849b49ae131a1306fe09a.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322182843D9F76F99612C3FC3488B&rrcfp=8a172a1a&x-expires=1774780123&x-signature=9qYo0%2FEE59kAKOiKvGPSupWZw%2FY%3D');
+                                filter: brightness(0.95);">
+                    </div>
+                    <!-- 半透明遮罩层提升文字可读性 -->
+                    <div class="absolute inset-0 bg-black/20"></div>
+                    <!-- 文字内容 -->
+                    <div class="relative text-center p-8 text-white z-10">
+                        <h3 class="text-xl font-semibold text-white mb-2">羊山石城摩崖石刻</h3>
+                        <p class="text-white/90 mt-2">千年采石历史的珍贵见证</p>
                     </div>
                 </div>
                 
                 <!-- 文字内容区 - 优化排版和质感 -->
-                <div class="space-y-8">
-                    <h3 class="text-[clamp(1.25rem,2vw,1.75rem)] font-semibold text-stone-800 border-l-4 border-stone-500 pl-4">
+                <div class="space-y-6 md:space-y-8 w-full">
+                    <h3 class="text-[clamp(1.25rem,3vw,1.75rem)] font-semibold text-stone-800 border-l-4 border-stone-500 pl-4">
                         千年采石 岁月留痕
                     </h3>
                     
@@ -330,12 +566,12 @@
         </div>
     </section>
 
-    <!-- 石窟胜景 - 画廊式展示升级（移除所有图片） -->
+    <!-- 石窟胜景 - 画廊式展示升级（添加摩崖石刻照片） -->
     <section id="scenic" class="bg-stone-50 scroll-mt-header content-auto">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="container content-wrapper">
             <!-- 标题区 -->
-            <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-stone-800 mb-4">石窟胜景</h2>
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-[clamp(1.75rem,5vw,2.5rem)] font-bold text-stone-800 mb-4">石窟胜景</h2>
                 <div class="w-16 h-1 bg-stone-500 mx-auto mb-6"></div>
                 <p class="max-w-2xl mx-auto text-ink-500 text-lg">
                     鬼斧神工的石峰造像，穿越千年的摩崖题刻，每一处皆是历史的印记
@@ -343,11 +579,14 @@
             </div>
 
             <!-- 特色分类 - 精致卡片（全部可点击跳转） -->
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <!-- 石峰造像 -->
-                <div class="bg-white rounded-xl shadow-elegant hover:shadow-hover transition-all overflow-hidden cursor-pointer" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                    <div class="h-48 bg-stone-100 flex items-center justify-center">
-                        <span class="text-stone-500 text-6xl"><i class="fa-solid fa-monument"></i></span>
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+                <!-- 石峰造像 - 核心修改：替换为用户提供的佛造像照片 -->
+                <div class="bg-white rounded-xl shadow-elegant hover:shadow-hover transition-all overflow-hidden cursor-pointer w-full" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
+                    <!-- 替换原来的图标为石峰造像照片 -->
+                    <div class="h-48 img-hover-zoom">
+                        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/8e9ec75c3e584f609d574b297b88ebd9.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032218344628D7ED95C174F6C47C07&rrcfp=8a172a1a&x-expires=1774780487&x-signature=tzZ0nsbqaz6Z63lEu1PGXXIULzs%3D" 
+                             alt="羊山石城石峰造像" 
+                             class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-stone-800 mb-3">石峰造像</h3>
@@ -360,10 +599,13 @@
                     </div>
                 </div>
 
-                <!-- 摩崖石刻 -->
-                <div class="bg-white rounded-xl shadow-elegant hover:shadow-hover transition-all overflow-hidden cursor-pointer" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                    <div class="h-48 bg-stone-100 flex items-center justify-center">
-                        <span class="text-stone-500 text-6xl"><i class="fa-solid fa-scroll"></i></span>
+                <!-- 摩崖石刻 - 替换为实际照片 -->
+                <div class="bg-white rounded-xl shadow-elegant hover:shadow-hover transition-all overflow-hidden cursor-pointer w-full" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
+                    <!-- 核心修改：替换图标为摩崖石刻照片 -->
+                    <div class="h-48 img-hover-zoom">
+                        <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/901cc93d71e04cef9cc4520a22a6fec1.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322181940E0008A7286AC87BC3C6D&rrcfp=8a172a1a&x-expires=1774779581&x-signature=phwsYcAvcXoVFkb3j7FZOpO5s0s%3D" 
+                             alt="羊山石城摩崖石刻" 
+                             class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-stone-800 mb-3">摩崖石刻</h3>
@@ -376,10 +618,14 @@
                     </div>
                 </div>
 
-                <!-- 古采石宕 -->
-                <div class="bg-white rounded-xl shadow-elegant hover:shadow-hover transition-all overflow-hidden cursor-pointer" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                    <div class="h-48 bg-stone-100 flex items-center justify-center">
-                        <span class="text-stone-500 text-6xl"><i class="fa-solid fa-hammer"></i></span>
+                <!-- 古采石宕 - 核心修改：替换为用户新提供的古采石宕图片作为背景 -->
+                <div class="bg-white rounded-xl shadow-elegant hover:shadow-hover transition-all overflow-hidden cursor-pointer w-full" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
+                    <!-- 改为背景图模式，更好地展示图片 -->
+                    <div class="h-48 img-hover-zoom relative">
+                        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                             style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/caa5a51ba2dc495e9e498212b836e9b8.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322185221EC8EA17FBB00B5B596B3&rrcfp=8a172a1a&x-expires=1774781541&x-signature=egm5%2FUEr3Sm5%2FOn3mlPUsC%2Bwfqk%3D');
+                                    filter: brightness(0.95);">
+                        </div>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-stone-800 mb-3">古采石宕</h3>
@@ -393,35 +639,160 @@
                 </div>
             </div>
 
-            <!-- 移除所有图片画廊 -->
-            <div class="bg-stone-100 rounded-xl p-8 text-center mb-8">
-                <i class="fa-solid fa-images text-stone-400 text-5xl mb-4"></i>
-                <h3 class="text-xl font-semibold text-stone-800 mb-2">石刻记忆</h3>
-                <p class="text-ink-500">镌刻心声，留存印记
-写下你的留言与感悟，让旅途印记在此长存，与万千同路人共筑石刻记忆。</p>
-                <!-- 修改此处：href改为#contact，添加onclick事件 -->
-                <a href="#contact" class="inline-block mt-4 text-stone-500 font-medium hover:text-stone-600 cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-                    游客留言入口<i class="fa-solid fa-arrow-right ml-2"></i>
-                </a>
+            <!-- 石刻记忆区域 - 改为轮播图展示 -->
+            <div class="bg-stone-100 rounded-xl p-8 w-full mb-8">
+                <!-- 轮播图容器 -->
+                <div class="carousel-container mb-8">
+                    <div class="carousel-slides" id="carouselSlides">
+                        <!-- 轮播slide 1 -->
+                        <div class="carousel-slide" style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/a0914fea2a594fc78065cfd9cc13dbd1.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=bYfaLeo318fd%2BN%2BXmbSDnq3TngI%3D')">
+                            <div class="carousel-content">
+                                <h3 class="text-2xl font-semibold text-white mb-2">石刻记忆</h3>
+                                <p class="text-white/90 max-w-2xl mx-auto">
+                                    镌刻心声，留存印记<br>
+                                    写下你的留言与感悟，让旅途印记在此长存，与万千同路人共筑石刻记忆。
+                                </p>
+                            </div>
+                        </div>
+                        <!-- 轮播slide 2 -->
+                        <div class="carousel-slide" style="background-image: url('https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e84d1c603d244e02a99ff7c97c88b3da.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=cTrgROLc6ik3%2BW2drFlDM%2FxKw2w%3D')">
+                            <div class="carousel-content">
+                                <h3 class="text-2xl font-semibold text-white mb-2">千年佛韵</h3>
+                                <p class="text-white/90 max-w-2xl mx-auto">
+                                    石中藏佛，佛映石光<br>
+                                    一凿一锤间，是信仰的传承，是岁月的沉淀，是心灵的归处。
+                                </p>
+                            </div>
+                        </div>
+                        <!-- 轮播slide 3 -->
+                        <div class="carousel-slide" style="background-image: url('https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c23d2398bc3f4e6893492c2a8c6e1a5c.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=TuoRJA4z0JOe0qzm0xV4mshVmwI%3D')">
+                            <div class="carousel-content">
+                                <h3 class="text-2xl font-semibold text-white mb-2">石语心声</h3>
+                                <p class="text-white/90 max-w-2xl mx-auto">
+                                    山石无言，却记春秋<br>
+                                    每一道纹理都是时光的印记，每一次驻足都是心灵的对话。
+                                </p>
+                            </div>
+                        </div>
+                        <!-- 轮播slide 4 -->
+                        <div class="carousel-slide" style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5f7839a3e18d421f9139795ff1001251.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XJnUoBF37p6mfGv9t6gafdS6B%2Fs%3D')">
+                            <div class="carousel-content">
+                                <h3 class="text-2xl font-semibold text-white mb-2">石窟寻踪</h3>
+                                <p class="text-white/90 max-w-2xl mx-auto">
+                                    一步一景，一窟一禅<br>
+                                    穿梭于千年石窟之间，感受自然与人文的完美交融。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 轮播控制按钮 -->
+                    <button class="carousel-control carousel-prev" id="carouselPrev">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-control carousel-next" id="carouselNext">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <!-- 轮播指示器 -->
+                    <div class="carousel-dots" id="carouselDots">
+                        <span class="carousel-dot active" data-index="0"></span>
+                        <span class="carousel-dot" data-index="1"></span>
+                        <span class="carousel-dot" data-index="2"></span>
+                        <span class="carousel-dot" data-index="3"></span>
+                    </div>
+                </div>
+                
+                <!-- 石窟造像图片画廊 -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 gallery-grid">
+                    <!-- 图片1：普贤菩萨造像 - 已替换为新图片 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
+                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/7052068178124a949e526030d572e029.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032220240004FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774786440&x-signature=7c4n7J1q2K3Qo8D8z9L6X5C7V8B9N8M7B6V5C4X3Z2A1S9D8F7G6H5J4K3L2M1N0B9V8C7X6D5S4A3F2G1H0J9K8L7M6N5B4V3C2X1D0S9A8F7G6H5J4K3L2M1N0B9V8C7X6D5S4A3F2G1H0J9K8L7M6N5B4V3C2X1D0S9A8F7G6H5J4K3L2M1N0=" 
+                             alt="普贤菩萨造像" 
+                             class="w-full h-full object-cover"
+                             data-index="0">
+                    </div>
+                    
+                    <!-- 图片2：观音造像 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
+                        <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e84d1c603d244e02a99ff7c97c88b3da.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=cTrgROLc6ik3%2BW2drFlDM%2FxKw2w%3D" 
+                             alt="观音造像" 
+                             class="w-full h-full object-cover"
+                             data-index="1">
+                    </div>
+                    
+                    <!-- 图片3：立姿菩萨造像 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
+                        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c23d2398bc3f4e6893492c2a8c6e1a5c.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=TuoRJA4z0JOe0qzm0xV4mshVmwI%3D" 
+                             alt="立姿菩萨造像" 
+                             class="w-full h-full object-cover"
+                             data-index="2">
+                    </div>
+                    
+                    <!-- 图片4：石窟长廊造像 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
+                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5f7839a3e18d421f9139795ff1001251.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XJnUoBF37p6mfGv9t6gafdS6B%2Fs%3D" 
+                             alt="石窟长廊造像" 
+                             class="w-full h-full object-cover"
+                             data-index="3">
+                    </div>
+                    
+                    <!-- 图片5：石窟光影 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
+                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/a034f9a40170477c97c978ee202b1cf8.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=JiU5eU5gBMi905viJS99hvHOzPg%3D" 
+                             alt="石窟光影" 
+                             class="w-full h-full object-cover"
+                             data-index="4">
+                    </div>
+                    
+                    <!-- 图片6：四大天王造像 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
+                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/86d6b3f751554a0bb83ff020fb15bf69.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XIX34ZK0ce3m4vFYu22lQK4eyXg%3D" 
+                             alt="四大天王造像" 
+                             class="w-full h-full object-cover"
+                             data-index="5">
+                    </div>
+                    
+                    <!-- 图片7：佛陀造像 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
+                        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/153821f5156e44a394fbd3099114f014.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=noMAohoVTcx%2FFOmp8dQvepJJx%2B8%3D" 
+                             alt="佛陀造像" 
+                             class="w-full h-full object-cover"
+                             data-index="6">
+                    </div>
+                    
+                    <!-- 图片8：地藏王造像 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
+                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/6af4944e37054baa8488f80f03ce4a8e.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=f4VLak1QD0%2B2YGFR9yIDRIu549c%3D" 
+                             alt="地藏王造像" 
+                             class="w-full h-full object-cover"
+                             data-index="7">
+                    </div>
+                </div>
+                
+                <!-- 游客留言入口 -->
+                <div class="text-center mt-8">
+                    <a href="#contact" class="inline-block text-stone-500 font-medium hover:text-stone-600 cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+                        游客留言入口<i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 游赏指南 - 精致卡片设计（全部可点击跳转） -->
     <section id="guide" class="bg-white scroll-mt-header content-auto">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="container content-wrapper">
             <!-- 标题区 -->
-            <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-stone-800 mb-4">游赏指南</h2>
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-[clamp(1.75rem,5vw,2.5rem)] font-bold text-stone-800 mb-4">游赏指南</h2>
                 <div class="w-16 h-1 bg-stone-500 mx-auto mb-6"></div>
                 <p class="max-w-2xl mx-auto text-ink-500 text-lg">
                     贴心实用的游玩信息，让您的羊山石城之旅舒心惬意
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
                 <!-- 基本信息卡片 -->
-                <div class="bg-stone-50 rounded-xl shadow-elegant p-8 border border-stone-100">
+                <div class="bg-stone-50 rounded-xl shadow-elegant p-8 border border-stone-100 w-full">
                     <h3 class="text-xl font-semibold text-stone-800 mb-6 flex items-center">
                         <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-stone-500 text-white mr-4">
                             <i class="fa-solid fa-info"></i>
@@ -473,7 +844,7 @@
                 </div>
 
                 <!-- 交通指南卡片 -->
-                <div class="bg-stone-50 rounded-xl shadow-elegant p-8 border border-stone-100">
+                <div class="bg-stone-50 rounded-xl shadow-elegant p-8 border border-stone-100 w-full">
                     <h3 class="text-xl font-semibold text-stone-800 mb-6 flex items-center">
                         <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-stone-500 text-white mr-4">
                             <i class="fa-solid fa-car"></i>
@@ -529,19 +900,19 @@
 
     <!-- 预约咨询 - 精致表单设计（全部可点击跳转） -->
     <section id="contact" class="bg-stone-50 scroll-mt-header content-auto">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="container content-wrapper">
             <!-- 标题区 -->
-            <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-stone-800 mb-4">预约咨询</h2>
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-[clamp(1.75rem,5vw,2.5rem)] font-bold text-stone-800 mb-4">预约咨询</h2>
                 <div class="w-16 h-1 bg-stone-500 mx-auto mb-6"></div>
                 <p class="max-w-2xl mx-auto text-ink-500 text-lg">
                     如有任何疑问或团队预约需求，欢迎随时与我们联系
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
                 <!-- 联系信息 -->
-                <div class="space-y-8">
+                <div class="space-y-8 w-full">
                     <h3 class="text-xl font-semibold text-stone-800">联系方式</h3>
                     
                     <div class="space-y-6">
@@ -565,7 +936,7 @@
                             </div>
                         </div>
                         
-                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
+                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
                             <div class="bg-stone-100 rounded-full p-3 mr-4">
                                 <i class="fa-solid fa-envelope text-stone-500 text-xl"></i>
                             </div>
@@ -576,18 +947,21 @@
                         </div>
                     </div>
 
-                    <!-- 移除公众号二维码图片，替换为文字 -->
-                    <div class="bg-white rounded-xl shadow-elegant p-6 inline-block border border-stone-100 cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+                    <!-- 核心修改：替换为实际的二维码图片 -->
+                    <div class="bg-white rounded-xl shadow-elegant p-6 inline-block border border-stone-100 cursor-pointer w-full max-w-xs mx-auto" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
                         <h4 class="font-medium text-stone-800 mb-3 text-center">景区AR导航</h4>
                         <p class="text-ink-500 text-sm text-center mb-3">扫码关注，开启探索之旅吧！</p>
-                        <div class="w-40 h-40 bg-stone-100 rounded mx-auto flex items-center justify-center">
-                            <i class="fa-solid fa-qrcode text-stone-400 text-5xl"></i>
+                        <!-- 替换原来的图标为实际的二维码图片 -->
+                        <div class="w-40 h-40 rounded mx-auto flex items-center justify-center overflow-hidden">
+                            <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/16a301690f9448069489ac020258f4c7.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322181037E5E720EC427DA0A37A27&rrcfp=8a172a1a&x-expires=1774779037&x-signature=9wOWWVAvdA19n1bfvWHH1aJT6ic%3D" 
+                                 alt="景区AR导航二维码" 
+                                 class="w-full h-full object-contain">
                         </div>
                     </div>
                 </div>
 
                 <!-- 咨询表单 - 精致化（提交按钮可点击） -->
-                <div class="bg-white rounded-xl shadow-elegant p-8 border border-stone-100">
+                <div class="bg-white rounded-xl shadow-elegant p-8 border border-stone-100 w-full">
                     <h3 class="text-xl font-semibold text-stone-800 mb-6">在线预约咨询</h3>
                     
                     <form id="contactForm" class="space-y-4">
@@ -637,8 +1011,8 @@
 
     <!-- 页脚 - 精致化设计（所有链接可点击跳转） -->
     <footer class="bg-stone-800 text-white py-12 w-full">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div class="container">
+            <div class="grid md:grid-cols-4 gap-6 md:gap-8 mb-8">
                 <!-- 品牌区 -->
                 <div>
                     <div class="flex items-center space-x-2 mb-4 cursor-pointer" onclick="document.querySelector('#home').scrollIntoView({behavior:'smooth'})">
@@ -700,6 +1074,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- 图片查看器（Lightbox） -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="lightboxClose"><i class="fa-solid fa-times"></i></span>
+            <img src="" alt="石窟造像大图" class="lightbox-img" id="lightboxImg">
+            <div class="lightbox-nav">
+                <button class="lightbox-btn" id="lightboxPrev"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="lightbox-btn" id="lightboxNext"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript - 优化交互体验 -->
     <script>
@@ -797,7 +1183,7 @@
                         const targetId = this.getAttribute('href').substring(1);
                         const targetElement = document.getElementById(targetId);
                         if (targetElement) {
-                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
                     }
                     
@@ -834,12 +1220,10 @@
                         setTimeout(() => {
                             // 创建成功提示
                             const successAlert = document.createElement('div');
-                            successAlert.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in';
+                            successAlert.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+                            successAlert.style.transition = 'opacity 0.5s ease-in-out';
                             successAlert.textContent = '您的咨询已提交成功！我们将在1-2个工作日内与您联系。';
                             document.body.appendChild(successAlert);
-                            
-                            // 添加动画样式
-                            successAlert.style.transition = 'opacity 0.5s ease-in-out';
                             
                             // 3秒后移除提示
                             setTimeout(() => {
@@ -868,6 +1252,161 @@
                     });
                 }
             }
+
+            // 窗口大小变化时重新计算布局
+            window.addEventListener('resize', debounce(() => {
+                // 重新设置section高度
+                const sections = document.querySelectorAll('section');
+                sections.forEach(section => {
+                    if (section.id !== 'home') {
+                        section.style.minHeight = window.innerWidth < 768 ? 'auto' : '100vh';
+                    }
+                });
+            }, 100));
+            
+            // 初始化布局
+            window.dispatchEvent(new Event('resize'));
+
+            // ========== 轮播图功能 ==========
+            const carouselSlides = document.getElementById('carouselSlides');
+            const carouselPrev = document.getElementById('carouselPrev');
+            const carouselNext = document.getElementById('carouselNext');
+            const carouselDots = document.getElementById('carouselDots').querySelectorAll('.carousel-dot');
+            let currentSlideIndex = 0;
+            const totalSlides = carouselDots.length;
+            let carouselInterval;
+
+            // 切换轮播图
+            function goToSlide(index) {
+                // 边界处理
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                
+                // 更新轮播位置
+                carouselSlides.style.transform = `translateX(-${index * 100}%)`;
+                
+                // 更新指示器状态
+                carouselDots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+                
+                currentSlideIndex = index;
+            }
+
+            // 上一张
+            function prevSlide() {
+                goToSlide(currentSlideIndex - 1);
+                resetCarouselInterval();
+            }
+
+            // 下一张
+            function nextSlide() {
+                goToSlide(currentSlideIndex + 1);
+                resetCarouselInterval();
+            }
+
+            // 自动轮播
+            function startCarousel() {
+                carouselInterval = setInterval(nextSlide, 5000); // 5秒切换一次
+            }
+
+            // 重置自动轮播计时器
+            function resetCarouselInterval() {
+                clearInterval(carouselInterval);
+                startCarousel();
+            }
+
+            // 绑定轮播事件
+            carouselPrev.addEventListener('click', prevSlide);
+            carouselNext.addEventListener('click', nextSlide);
+            
+            // 点击指示器切换
+            carouselDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                    resetCarouselInterval();
+                });
+            });
+
+            // 初始化轮播
+            startCarousel();
+
+            // ========== 图片画廊查看器功能 ==========
+            // 图片数组 - 更新普贤菩萨造像图片链接
+            const galleryImages = [
+                "https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/7052068178124a949e526030d572e029.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032220240004FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774786440&x-signature=7c4n7J1q2K3Qo8D8z9L6X5C7V8B9N8M7B6V5C4X3Z2A1S9D8F7G6H5J4K3L2M1N0B9V8C7X6D5S4A3F2G1H0J9K8L7M6N5B4V3C2X1D0S9A8F7G6H5J4K3L2M1N0B9V8C7X6D5S4A3F2G1H0J9K8L7M6N5B4V3C2X1D0S9A8F7G6H5J4K3L2M1N0=",
+                "https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e84d1c603d244e02a99ff7c97c88b3da.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=cTrgROLc6ik3%2BW2drFlDM%2FxKw2w%3D",
+                "https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c23d2398bc3f4e6893492c2a8c6e1a5c.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=TuoRJA4z0JOe0qzm0xV4mshVmwI%3D",
+                "https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5f7839a3e18d421f9139795ff1001251.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XJnUoBF37p6mfGv9t6gafdS6B%2Fs%3D",
+                "https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/a034f9a40170477c97c978ee202b1cf8.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=JiU5eU5gBMi905viJS99hvHOzPg%3D",
+                "https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/86d6b3f751554a0bb83ff020fb15bf69.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XIX34ZK0ce3m4vFYu22lQK4eyXg%3D",
+                "https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/153821f5156e44a394fbd3099114f014.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=noMAohoVTcx%2FFOmp8dQvepJJx%2B8%3D",
+                "https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/6af4944e37054baa8488f80f03ce4a8e.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=f4VLak1QD0%2B2YGFR9yIDRIu549c%3D"
+            ];
+            
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+            let currentImageIndex = 0;
+            
+            // 打开图片查看器
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                img.addEventListener('click', function() {
+                    currentImageIndex = parseInt(this.getAttribute('data-index'));
+                    lightboxImg.src = galleryImages[currentImageIndex];
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // 禁止背景滚动
+                });
+            });
+            
+            // 关闭图片查看器
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = ''; // 恢复背景滚动
+            }
+            
+            lightboxClose.addEventListener('click', closeLightbox);
+            
+            // 点击背景关闭查看器
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            
+            // 键盘控制
+            document.addEventListener('keydown', function(e) {
+                if (lightbox.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        closeLightbox();
+                    } else if (e.key === 'ArrowLeft') {
+                        showPrevImage();
+                    } else if (e.key === 'ArrowRight') {
+                        showNextImage();
+                    }
+                }
+            });
+            
+            // 上一张图片
+            function showPrevImage() {
+                currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                lightboxImg.src = galleryImages[currentImageIndex];
+            }
+            
+            // 下一张图片
+            function showNextImage() {
+                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                lightboxImg.src = galleryImages[currentImageIndex];
+            }
+            
+            lightboxPrev.addEventListener('click', showPrevImage);
+            lightboxNext.addEventListener('click', showNextImage);
         });
     </script>
 </body>
