@@ -4,73 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>羊山石城 - 浙东千年石境，江南石窟奇观</title>
-    <!-- 性能优化：预加载关键资源 -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- 引入Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com" defer></script>
-    <!-- 引入Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- 引入谷歌字体：Noto Serif SC (衬线字体提升文化质感) -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- 自定义配置 -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        // 升级配色：更贴合石材质感的大地色系
                         stone: {
-                            50: '#F9F7F5',
-                            100: '#F1EEE9',
-                            200: '#E0D9CF',
-                            300: '#C8BCAA',
-                            400: '#A89883',
-                            500: '#8B7860', // 主色调
-                            600: '#73624E',
-                            700: '#5A4E3F',
-                            800: '#463C30',
-                            900: '#332D23',
+                            50: '#F9F7F5', 100: '#F1EEE9', 200: '#E0D9CF', 300: '#C8BCAA',
+                            400: '#A89883', 500: '#8B7860', 600: '#73624E', 700: '#5A4E3F',
+                            800: '#463C30', 900: '#332D23',
                         },
-                        ink: { // 墨色 - 文本主色
-                            100: '#F5F5F5',
-                            200: '#E5E5E5',
-                            300: '#D4D4D4',
-                            400: '#A3A3A3',
-                            500: '#737373',
-                            600: '#525252',
-                            700: '#404040', // 主要文本
-                            800: '#262626',
-                            900: '#171717',
+                        ink: {
+                            100: '#F5F5F5', 200: '#E5E5E5', 300: '#D4D4D4', 400: '#A3A3A3',
+                            500: '#737373', 600: '#525252', 700: '#404040', 800: '#262626', 900: '#171717',
                         },
-                        accent: { // 点缀色 - 朱红
-                            100: '#FEE2E2',
-                            200: '#FECACA',
-                            300: '#FCA5A5',
-                            400: '#F87171',
-                            500: '#EF4444',
-                            600: '#DC2626', // 强调色
-                            700: '#B91C1C',
-                            800: '#991B1B',
-                            900: '#7F1D1D',
+                        accent: {
+                            100: '#FEE2E2', 200: '#FECACA', 300: '#FCA5A5', 400: '#F87171',
+                            500: '#EF4444', 600: '#DC2626', 700: '#B91C1C', 800: '#991B1B', 900: '#7F1D1D',
                         }
                     },
                     fontFamily: {
-                        serif: ['"Noto Serif SC"', 'serif'], // 中文衬线字体
+                        serif: ['"Noto Serif SC"', 'serif'],
                         sans: ['system-ui', 'sans-serif'],
                     },
                     boxShadow: {
                         'elegant': '0 4px 20px rgba(0, 0, 0, 0.08)',
                         'hover': '0 8px 30px rgba(0, 0, 0, 0.12)',
                     },
-                    transitionProperty: {
-                        'transform': 'transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)',
-                        'opacity': 'opacity 0.3s ease-in-out',
-                    }
                 }
             }
         }
@@ -78,340 +47,130 @@
     
     <style type="text/tailwindcss">
         @layer utilities {
-            /* 自定义工具类 */
-            .content-auto {
-                content-visibility: auto;
-            }
-            .text-shadow-elegant {
-                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-            }
-            .bg-gradient-overlay {
-                background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
-            }
-            .scroll-mt-header {
-                scroll-margin-top: 88px;
-            }
-            .full-vh-minus-header {
-                min-height: calc(100vh - 88px);
-                height: calc(100vh - 88px);
-            }
-            /* 自定义滚动条 */
-            ::-webkit-scrollbar {
-                width: 8px;
-            }
-            ::-webkit-scrollbar-track {
-                background: #f1f1f1;
-            }
-            ::-webkit-scrollbar-thumb {
-                background: #8B7860;
-                border-radius: 4px;
-            }
-            ::-webkit-scrollbar-thumb:hover {
-                background: #73624E;
-            }
-            /* 图片加载占位样式 */
+            .content-auto { content-visibility: auto; }
+            .text-shadow-elegant { text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); }
+            .bg-gradient-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)); }
+            .scroll-mt-header { scroll-margin-top: 88px; }
+            .full-vh-minus-header { min-height: calc(100vh - 88px); height: calc(100vh - 88px); }
+            
+            ::-webkit-scrollbar { width: 8px; }
+            ::-webkit-scrollbar-track { background: #f1f1f1; }
+            ::-webkit-scrollbar-thumb { background: #8B7860; border-radius: 4px; }
+            ::-webkit-scrollbar-thumb:hover { background: #73624E; }
+            
             .img-placeholder {
                 background-color: #F1EEE9;
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23C8BCAA' fill-opacity='0.2'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             }
-            /* 骨架屏加载效果 */
-            .skeleton {
-                animation: skeleton-loading 1.5s linear infinite alternate;
-            }
+            
+            .skeleton { animation: skeleton-loading 1.5s linear infinite alternate; }
             @keyframes skeleton-loading {
-                0% {
-                    background-color: rgba(168, 152, 131, 0.1);
-                }
-                100% {
-                    background-color: rgba(168, 152, 131, 0.3);
-                }
+                0% { background-color: rgba(168, 152, 131, 0.1); }
+                100% { background-color: rgba(168, 152, 131, 0.3); }
             }
-            /* 图片悬停放大效果 */
-            .img-hover-zoom {
-                overflow: hidden;
-            }
-            .img-hover-zoom img {
-                transition: transform 0.5s ease;
-            }
-            .img-hover-zoom:hover img {
-                transform: scale(1.05);
-            }
-            /* 图片画廊预览效果 */
-            .gallery-item {
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-            .gallery-item:hover {
-                transform: translateY(-5px);
-            }
-            /* 图片查看器样式 */
+            
+            .img-hover-zoom { overflow: hidden; }
+            .img-hover-zoom img { transition: transform 0.5s ease; }
+            .img-hover-zoom:hover img { transform: scale(1.05); }
+            
+            .gallery-item { cursor: pointer; transition: all 0.3s ease; }
+            .gallery-item:hover { transform: translateY(-5px); }
+            
             .lightbox {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.9);
-                z-index: 100;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.3s ease;
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background-color: rgba(0, 0, 0, 0.9); z-index: 100;
+                display: flex; align-items: center; justify-content: center;
+                opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
             }
-            .lightbox.active {
-                opacity: 1;
-                pointer-events: all;
-            }
-            .lightbox-content {
-                max-width: 90%;
-                max-height: 90vh;
-                position: relative;
-            }
-            .lightbox-img {
-                max-width: 100%;
-                max-height: 90vh;
-                border: 4px solid white;
-                border-radius: 4px;
-            }
+            .lightbox.active { opacity: 1; pointer-events: all; }
+            .lightbox-content { max-width: 90%; max-height: 90vh; position: relative; }
+            .lightbox-img { max-width: 100%; max-height: 90vh; border: 4px solid white; border-radius: 4px; }
             .lightbox-close {
-                position: absolute;
-                top: -40px;
-                right: 0;
-                color: white;
-                font-size: 2rem;
-                cursor: pointer;
-                transition: transform 0.2s ease;
+                position: absolute; top: -40px; right: 0; color: white; font-size: 2rem;
+                cursor: pointer; transition: transform 0.2s ease;
             }
-            .lightbox-close:hover {
-                transform: scale(1.1);
-            }
+            .lightbox-close:hover { transform: scale(1.1); }
             .lightbox-nav {
-                position: absolute;
-                top: 50%;
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                transform: translateY(-50%);
-                padding: 0 20px;
+                position: absolute; top: 50%; width: 100%;
+                display: flex; justify-content: space-between;
+                transform: translateY(-50%); padding: 0 20px;
             }
             .lightbox-btn {
-                color: white;
-                font-size: 2.5rem;
-                background: rgba(0, 0, 0, 0.5);
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: all 0.2s ease;
-                border: none;
+                color: white; font-size: 2.5rem; background: rgba(0, 0, 0, 0.5);
+                border-radius: 50%; width: 50px; height: 50px;
+                display: flex; align-items: center; justify-content: center;
+                cursor: pointer; transition: all 0.2s ease; border: none;
             }
-            .lightbox-btn:hover {
-                background: rgba(0, 0, 0, 0.8);
-                transform: scale(1.1);
-            }
-            /* 轮播图样式 */
-            .carousel-container {
-                position: relative;
-                overflow: hidden;
-                border-radius: 8px;
-            }
-            .carousel-slides {
-                display: flex;
-                transition: transform 0.5s ease-in-out;
-                width: 100%;
-            }
+            .lightbox-btn:hover { background: rgba(0, 0, 0, 0.8); transform: scale(1.1); }
+            
+            .carousel-container { position: relative; overflow: hidden; border-radius: 8px; }
+            .carousel-slides { display: flex; transition: transform 0.5s ease-in-out; width: 100%; }
             .carousel-slide {
-                min-width: 100%;
-                height: 200px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-                padding: 2rem;
-                color: white;
-                background-size: cover;
-                background-position: center;
-                position: relative;
+                min-width: 100%; height: 200px; display: flex; align-items: center;
+                justify-content: center; text-align: center; padding: 2rem; color: white;
+                background-size: cover; background-position: center; position: relative;
             }
             .carousel-slide::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.5);
-                z-index: 1;
+                content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0, 0, 0, 0.5); z-index: 1;
             }
-            .carousel-content {
-                position: relative;
-                z-index: 2;
-            }
+            .carousel-content { position: relative; z-index: 2; }
             .carousel-dots {
-                position: absolute;
-                bottom: 1rem;
-                left: 50%;
-                transform: translateX(-50%);
-                display: flex;
-                gap: 0.5rem;
-                z-index: 3;
+                position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%);
+                display: flex; gap: 0.5rem; z-index: 3;
             }
             .carousel-dot {
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.5);
-                cursor: pointer;
+                width: 10px; height: 10px; border-radius: 50%;
+                background: rgba(255, 255, 255, 0.5); cursor: pointer;
                 transition: background 0.3s ease;
             }
-            .carousel-dot.active {
-                background: white;
-            }
+            .carousel-dot.active { background: white; }
             .carousel-control {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(0, 0, 0, 0.5);
-                color: white;
-                border: none;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                z-index: 3;
-                transition: background 0.3s ease;
+                position: absolute; top: 50%; transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.5); color: white; border: none;
+                width: 40px; height: 40px; border-radius: 50%;
+                display: flex; align-items: center; justify-content: center;
+                cursor: pointer; z-index: 3; transition: background 0.3s ease;
             }
-            .carousel-control:hover {
-                background: rgba(0, 0, 0, 0.8);
-            }
-            .carousel-prev {
-                left: 1rem;
-            }
-            .carousel-next {
-                right: 1rem;
-            }
+            .carousel-control:hover { background: rgba(0, 0, 0, 0.8); }
+            .carousel-prev { left: 1rem; }
+            .carousel-next { right: 1rem; }
         }
         
-        /* 基础全屏样式设置 */
-        html, body {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            box-sizing: border-box;
-        }
+        html, body { height: 100%; width: 100%; margin: 0; padding: 0; overflow-x: hidden; box-sizing: border-box; }
+        *, *::before, *::after { box-sizing: inherit; }
+        .container { width: 100%; max-width: 100%; padding-left: clamp(1rem, 3vw, 2.5rem); padding-right: clamp(1rem, 3vw, 2.5rem); margin: 0 auto; }
+        section { width: 100%; min-height: 100vh; padding-top: 0; padding-bottom: 0; display: flex; align-items: center; }
+        body { padding-top: 88px; }
+        #home { min-height: calc(100vh - 88px); height: calc(100vh - 88px); align-items: stretch; }
+        #home > div { height: 100%; width: 100%; }
+        .content-wrapper { padding-top: clamp(2rem, 5vw, 4rem); padding-bottom: clamp(2rem, 5vw, 4rem); width: 100%; }
         
-        *, *::before, *::after {
-            box-sizing: inherit;
-        }
-        
-        /* 容器适配 - 兼顾全屏和内容可读性 */
-        .container {
-            width: 100%;
-            max-width: 100%;
-            padding-left: clamp(1rem, 3vw, 2.5rem);
-            padding-right: clamp(1rem, 3vw, 2.5rem);
-            margin: 0 auto;
-        }
-        
-        /* 区块基础样式 - 自适应高度 */
-        section {
-            width: 100%;
-            min-height: 100vh;
-            padding-top: 0;
-            padding-bottom: 0;
-            display: flex;
-            align-items: center;
-        }
-        
-        /* 修复header固定定位导致的内容偏移 */
-        body {
-            padding-top: 88px;
-        }
-        
-        /* 首页Hero区域特殊处理 */
-        #home {
-            min-height: calc(100vh - 88px);
-            height: calc(100vh - 88px);
-            align-items: stretch;
-        }
-        
-        #home > div {
-            height: 100%;
-            width: 100%;
-        }
-        
-        /* 内容容器垂直间距优化 */
-        .content-wrapper {
-            padding-top: clamp(2rem, 5vw, 4rem);
-            padding-bottom: clamp(2rem, 5vw, 4rem);
-            width: 100%;
-        }
-        
-        /* 响应式调整 - 移动端优化 */
         @media (max-width: 768px) {
-            section {
-                min-height: auto;
-                padding-top: 2rem;
-                padding-bottom: 2rem;
-            }
-            
-            #home {
-                min-height: calc(100vh - 88px);
-                height: calc(100vh - 88px);
-            }
-            
-            .grid-cols-2 {
-                grid-template-columns: 1fr;
-            }
-            
-            .md\\:grid-cols-2, .md\\:grid-cols-3, .md\\:grid-cols-4 {
-                grid-template-columns: 1fr;
-            }
-            
-            /* 移动端图片画廊适配 */
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-            
-            .lightbox-btn {
-                font-size: 1.5rem;
-                width: 40px;
-                height: 40px;
-            }
-            
-            /* 移动端轮播适配 */
-            .carousel-slide {
-                height: 180px;
-                padding: 1rem;
-            }
-            .carousel-control {
-                width: 30px;
-                height: 30px;
-            }
+            section { min-height: auto; padding-top: 2rem; padding-bottom: 2rem; }
+            #home { min-height: calc(100vh - 88px); height: calc(100vh - 88px); }
+            .grid-cols-2 { grid-template-columns: 1fr; }
+            .md\\:grid-cols-2, .md\\:grid-cols-3, .md\\:grid-cols-4 { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .lightbox-btn { font-size: 1.5rem; width: 40px; height: 40px; }
+            .carousel-slide { height: 180px; padding: 1rem; }
+            .carousel-control { width: 30px; height: 30px; }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body class="font-serif text-ink-700 bg-stone-50 antialiased">
-    <!-- 导航栏 - 精致化升级 -->
     <header id="header" class="fixed w-full top-0 z-50 bg-white/98 backdrop-blur-sm shadow-elegant transition-all duration-300">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <!-- Logo - 更具文化质感 -->
             <a href="#home" class="flex items-center space-x-2 cursor-pointer">
                 <span class="text-stone-500 text-3xl"><i class="fa-solid fa-gopuram"></i></span>
                 <span class="text-[clamp(1.25rem,2vw,1.5rem)] font-bold text-stone-800 tracking-wider">羊山石城</span>
             </a>
 
-            <!-- 桌面端导航 - 优化排版和交互 -->
             <nav class="hidden md:flex space-x-8">
                 <a href="#home" class="nav-link font-medium text-ink-600 hover:text-stone-500 transition-colors pb-1 border-b-2 border-transparent hover:border-stone-500 cursor-pointer">首页</a>
                 <a href="#about" class="nav-link font-medium text-ink-600 hover:text-stone-500 transition-colors pb-1 border-b-2 border-transparent hover:border-stone-500 cursor-pointer">石城溯源</a>
@@ -420,13 +179,11 @@
                 <a href="#contact" class="nav-link font-medium text-ink-600 hover:text-stone-500 transition-colors pb-1 border-b-2 border-transparent hover:border-stone-500 cursor-pointer">预约咨询</a>
             </nav>
 
-            <!-- 移动端汉堡菜单 - 精致化 -->
             <button id="menuBtn" class="md:hidden text-ink-800 text-xl" aria-expanded="false" aria-controls="mobileMenu">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
-        <!-- 移动端导航菜单 - 优化样式 -->
         <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg absolute w-full border-t border-stone-100" aria-hidden="true">
             <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
                 <a href="#home" class="font-medium text-ink-700 hover:text-stone-500 transition-colors py-2 px-3 rounded-md hover:bg-stone-50 cursor-pointer">首页</a>
@@ -438,18 +195,13 @@
         </div>
     </header>
 
-    <!-- 首页hero区 - 添加羊山石境背景图并全屏铺满 -->
     <section id="home" class="scroll-mt-header">
         <div class="relative w-full h-full overflow-hidden">
-            <!-- 核心修改：添加背景图片并设置全屏铺满 -->
             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-                 style="background-image: url('https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/21c082c384034d74b6f605a6944f4eee.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202603221824043221C6ED1C224EB2C622&rrcfp=8a172a1a&x-expires=1774779844&x-signature=JxThDzWnX8R7hspqeFv6GrIwjS8%3D'); 
-                        filter: brightness(0.9);">
+                 style="background-image: url('https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/21c082c384034d74b6f605a6944f4eee.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202603221824043221C6ED1C224EB2C622&rrcfp=8a172a1a&x-expires=1774779844&x-signature=JxThDzWnX8R7hspqeFv6GrIwjS8%3D'); filter: brightness(0.9);">
             </div>
-            <!-- 渐变遮罩层，提升文字可读性 -->
             <div class="absolute inset-0 bg-gradient-overlay"></div>
             
-            <!-- 文字内容 - 精致排版 -->
             <div class="relative h-full flex items-center justify-center text-center px-4">
                 <div class="max-w-4xl w-full">
                     <h1 class="text-[clamp(2rem,8vw,4.5rem)] font-bold text-white mb-6 text-shadow-elegant leading-tight">
@@ -459,105 +211,76 @@
                     <p class="text-[clamp(1rem,3vw,1.25rem)] text-white/90 mb-8 max-w-2xl mx-auto text-shadow-elegant">
                         始于隋唐，盛于明清，千年采石史铸就的地质瑰宝，融自然奇观与人文底蕴于一体
                     </p>
-                    <a href="#guide" class="inline-block bg-stone-500 hover:bg-stone-600 text-white px-8 py-3 rounded-lg font-medium transition-all hover:shadow-lg transform hover:-translate-y-1 cursor-pointer">
+                    
+                    <button onclick="open3DView()" class="inline-block bg-stone-500 hover:bg-stone-600 text-white px-8 py-3 rounded-lg font-medium transition-all hover:shadow-lg transform hover:-translate-y-1 cursor-pointer">
                         探寻石境 <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </a>
+                    </button>
                 </div>
             </div>
             
-            <!-- 向下滚动提示 -->
             <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce cursor-pointer" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})">
                 <i class="fa-solid fa-chevron-down text-xl opacity-80"></i>
             </div>
         </div>
     </section>
 
-    <!-- 石城溯源 - 内容和视觉双重升级（添加摩崖石刻背景图） -->
+    <div id="modelView" class="fixed inset-0 z-[999] bg-black hidden">
+        <div style="position: relative; width: 100%; height: 100%; border-radius: 0; overflow: hidden;">
+            <div id="loadingOverlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 10; transition: opacity 0.5s ease;">
+                <div style="width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid #4CAF50; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
+                <div style="color: white; font-size: 16px;">正在加载3D石窟模型...</div>
+            </div>
+            <div id="errorMessage" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); background: rgba(255, 99, 71, 0.9); color: white; padding: 12px 24px; border-radius: 6px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); z-index: 20; display: none;"></div>
+            <div style="position: absolute; top: 20px; right: 20px; z-index: 5; display: flex; gap: 12px;">
+                <button onclick="refreshModel()" style="background: rgba(255, 255, 255, 0.85); border: none; border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; font-size: 18px;" title="刷新模型">↻</button>
+                <button onclick="toggleFullscreen()" style="background: rgba(255, 255, 255, 0.85); border: none; border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; font-size: 18px;" title="全屏模式">⛶</button>
+                <button onclick="close3DView()" style="background: rgba(255, 255, 255, 0.85); border: none; border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; font-size: 18px;" title="关闭模型">✕</button>
+            </div>
+            <iframe 
+                id="sketchfabFrame"
+                src="https://sketchfab.com/models/ead841ad0125426b8de404924e7dfa9b/embed?autostart=1&ui_theme=dark&ui_infos=0&ui_watermark=0&ui_stop=0&ui_help=0&ui_settings=0&ui_fs=1&ui_ar=0" 
+                allow="autoplay; fullscreen; xr-spatial-tracking" 
+                allowfullscreen 
+                style="width:100%; height:100%; border:none;">
+            </iframe>
+        </div>
+    </div>
+
     <section id="about" class="bg-white scroll-mt-header content-auto">
         <div class="container content-wrapper">
-            <!-- 标题区 - 精致化 -->
             <div class="text-center mb-12 md:mb-16">
                 <h2 class="text-[clamp(1.75rem,5vw,2.5rem)] font-bold text-stone-800 mb-4">石城溯源</h2>
                 <div class="w-16 h-1 bg-stone-500 mx-auto mb-6"></div>
-                <p class="max-w-2xl mx-auto text-ink-500 text-lg">
-                    千年采石史，一斧一凿间，铸就浙东独有的石宕石窟景观
-                </p>
+                <p class="max-w-2xl mx-auto text-ink-500 text-lg">千年采石史，一斧一凿间，铸就浙东独有的石宕石窟景观</p>
             </div>
-
             <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                <!-- 核心修改：替换为摩崖石刻照片并设置铺满背景 -->
                 <div class="rounded-xl overflow-hidden shadow-elegant h-[400px] flex items-center justify-center w-full relative">
-                    <!-- 摩崖石刻背景图 - 铺满整个容器 -->
-                    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-                         style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/30fc0d332fe849b49ae131a1306fe09a.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322182843D9F76F99612C3FC3488B&rrcfp=8a172a1a&x-expires=1774780123&x-signature=9qYo0%2FEE59kAKOiKvGPSupWZw%2FY%3D');
-                                filter: brightness(0.95);">
-                    </div>
-                    <!-- 半透明遮罩层提升文字可读性 -->
+                    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/30fc0d332fe849b49ae131a1306fe09a.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322182843D9F76F99612C3FC3488B&rrcfp=8a172a1a&x-expires=1774780123&x-signature=9qYo0%2FEE59kAKOiKvGPSupWZw%2FY%3D');filter: brightness(0.95);"></div>
                     <div class="absolute inset-0 bg-black/20"></div>
-                    <!-- 文字内容 -->
                     <div class="relative text-center p-8 text-white z-10">
                         <h3 class="text-xl font-semibold text-white mb-2">羊山石城摩崖石刻</h3>
                         <p class="text-white/90 mt-2">千年采石历史的珍贵见证</p>
                     </div>
                 </div>
-                
-                <!-- 文字内容区 - 优化排版和质感 -->
                 <div class="space-y-6 md:space-y-8 w-full">
-                    <h3 class="text-[clamp(1.25rem,3vw,1.75rem)] font-semibold text-stone-800 border-l-4 border-stone-500 pl-4">
-                        千年采石 岁月留痕
-                    </h3>
-                    
-                    <p class="text-ink-600 leading-relaxed text-lg">
-                        羊山石城坐落于绍兴市柯桥区齐贤街道，东临杭州湾，北接钱塘。自隋唐始采石，至明清达鼎盛，历经十数朝更迭，千余年开采，形成了如今峰石林立、窟洞相连的独特地貌，被誉为"江南小敦煌"。
-                    </p>
-                    
-                    <p class="text-ink-600 leading-relaxed text-lg">
-                        这里不仅是绍兴古城建设的石材之源，更因独特的喀斯特石峰与石窟造像，成为浙东地区自然与人文交融的典范，亦是《西游记》《越王勾践》等经典影视作品的取景地。
-                    </p>
-                    
-                    <!-- 核心信息卡片 - 精致化设计（全部可点击跳转） -->
+                    <h3 class="text-[clamp(1.25rem,3vw,1.75rem)] font-semibold text-stone-800 border-l-4 border-stone-500 pl-4">千年采石 岁月留痕</h3>
+                    <p class="text-ink-600 leading-relaxed text-lg">羊山石城坐落于绍兴市柯桥区齐贤街道，东临杭州湾，北接钱塘。自隋唐始采石，至明清达鼎盛，历经十数朝更迭，千余年开采，形成了如今峰石林立、窟洞相连的独特地貌，被誉为"江南小敦煌"。</p>
+                    <p class="text-ink-600 leading-relaxed text-lg">这里不仅是绍兴古城建设的石材之源，更因独特的喀斯特石峰与石窟造像，成为浙东地区自然与人文交融的典范，亦是《西游记》《越王勾践》等经典影视作品的取景地。</p>
                     <div class="grid grid-cols-2 gap-4 mt-4">
-                        <!-- 隋唐始采石 -->
                         <div class="bg-stone-50 rounded-lg p-4 border border-stone-100 hover:shadow-hover transition-all cursor-pointer group" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})">
-                            <div class="flex items-center mb-2">
-                                <span class="text-stone-500 text-xl mr-3 group-hover:text-accent-600 transition-colors">
-                                    <i class="fa-solid fa-calendar"></i>
-                                </span>
-                                <h4 class="font-medium text-stone-800">隋唐始采石</h4>
-                            </div>
+                            <div class="flex items-center mb-2"><span class="text-stone-500 text-xl mr-3 group-hover:text-accent-600 transition-colors"><i class="fa-solid fa-calendar"></i></span><h4 class="font-medium text-stone-800">隋唐始采石</h4></div>
                             <p class="text-ink-500 text-sm">距今1400余年采石史，越州古城建设之基</p>
                         </div>
-                        
-                        <!-- 面积约800亩 -->
                         <div class="bg-stone-50 rounded-lg p-4 border border-stone-100 hover:shadow-hover transition-all cursor-pointer group" onclick="document.querySelector('#scenic').scrollIntoView({behavior:'smooth'})">
-                            <div class="flex items-center mb-2">
-                                <span class="text-stone-500 text-xl mr-3 group-hover:text-accent-600 transition-colors">
-                                    <i class="fa-solid fa-ruler-combined"></i>
-                                </span>
-                                <h4 class="font-medium text-stone-800">面积约800亩</h4>
-                            </div>
+                            <div class="flex items-center mb-2"><span class="text-stone-500 text-xl mr-3 group-hover:text-accent-600 transition-colors"><i class="fa-solid fa-ruler-combined"></i></span><h4 class="font-medium text-stone-800">面积约800亩</h4></div>
                             <p class="text-ink-500 text-sm">核心景区300亩，大小石峰百余座</p>
                         </div>
-                        
-                        <!-- 影视取景地 -->
                         <div class="bg-stone-50 rounded-lg p-4 border border-stone-100 hover:shadow-hover transition-all cursor-pointer group" onclick="document.querySelector('#scenic').scrollIntoView({behavior:'smooth'})">
-                            <div class="flex items-center mb-2">
-                                <span class="text-stone-500 text-xl mr-3 group-hover:text-accent-600 transition-colors">
-                                    <i class="fa-solid fa-film"></i>
-                                </span>
-                                <h4 class="font-medium text-stone-800">影视取景地</h4>
-                            </div>
+                            <div class="flex items-center mb-2"><span class="text-stone-500 text-xl mr-3 group-hover:text-accent-600 transition-colors"><i class="fa-solid fa-film"></i></span><h4 class="font-medium text-stone-800">影视取景地</h4></div>
                             <p class="text-ink-500 text-sm">江南第一影视石城，多部经典作品取景</p>
                         </div>
-                        
-                        <!-- 绍兴柯桥区 -->
                         <div class="bg-stone-50 rounded-lg p-4 border border-stone-100 hover:shadow-hover transition-all cursor-pointer group" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                            <div class="flex items-center mb-2">
-                                <span class="text-stone-500 text-xl mr-3 group-hover:text-accent-600 transition-colors">
-                                    <i class="fa-solid fa-map-marker"></i>
-                                </span>
-                                <h4 class="font-medium text-stone-800">绍兴柯桥区</h4>
-                            </div>
+                            <div class="flex items-center mb-2"><span class="text-stone-500 text-xl mr-3 group-hover:text-accent-600 transition-colors"><i class="fa-solid fa-map-marker"></i></span><h4 class="font-medium text-stone-800">绍兴柯桥区</h4></div>
                             <p class="text-ink-500 text-sm">绍兴北部，融纺织之都与千年石韵于一体</p>
                         </div>
                     </div>
@@ -566,133 +289,45 @@
         </div>
     </section>
 
-    <!-- 石窟胜景 - 画廊式展示升级（添加摩崖石刻照片） -->
     <section id="scenic" class="bg-stone-50 scroll-mt-header content-auto">
         <div class="container content-wrapper">
-            <!-- 标题区 -->
             <div class="text-center mb-12 md:mb-16">
                 <h2 class="text-[clamp(1.75rem,5vw,2.5rem)] font-bold text-stone-800 mb-4">石窟胜景</h2>
                 <div class="w-16 h-1 bg-stone-500 mx-auto mb-6"></div>
-                <p class="max-w-2xl mx-auto text-ink-500 text-lg">
-                    鬼斧神工的石峰造像，穿越千年的摩崖题刻，每一处皆是历史的印记
-                </p>
+                <p class="max-w-2xl mx-auto text-ink-500 text-lg">鬼斧神工的石峰造像，穿越千年的摩崖题刻，每一处皆是历史的印记</p>
             </div>
-
-            <!-- 特色分类 - 精致卡片（全部可点击跳转） -->
             <div class="grid md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
-                <!-- 石峰造像 - 核心修改：替换为用户提供的佛造像照片 -->
                 <div class="bg-white rounded-xl shadow-elegant hover:shadow-hover transition-all overflow-hidden cursor-pointer w-full" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                    <!-- 替换原来的图标为石峰造像照片 -->
-                    <div class="h-48 img-hover-zoom">
-                        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/8e9ec75c3e584f609d574b297b88ebd9.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032218344628D7ED95C174F6C47C07&rrcfp=8a172a1a&x-expires=1774780487&x-signature=tzZ0nsbqaz6Z63lEu1PGXXIULzs%3D" 
-                             alt="羊山石城石峰造像" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-stone-800 mb-3">石峰造像</h3>
-                        <p class="text-ink-600 mb-4">
-                            依石而凿的佛造像群，神态各异，工艺精湛，见证了浙东佛教文化的兴盛。
-                        </p>
-                        <a href="#guide" class="text-stone-500 font-medium hover:text-stone-600 inline-flex items-center cursor-pointer">
-                            探寻详情 <i class="fa-solid fa-long-arrow-right ml-2"></i>
-                        </a>
-                    </div>
+                    <div class="h-48 img-hover-zoom"><img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/8e9ec75c3e584f609d574b297b88ebd9.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032218344628D7ED95C174F6C47C07&rrcfp=8a172a1a&x-expires=1774780487&x-signature=tzZ0nsbqaz6Z63lEu1PGXXIULzs%3D" alt="羊山石城石峰造像" class="w-full h-full object-cover"></div>
+                    <div class="p-6"><h3 class="text-xl font-semibold text-stone-800 mb-3">石峰造像</h3><p class="text-ink-600 mb-4">依石而凿的佛造像群，神态各异，工艺精湛，见证了浙东佛教文化的兴盛。</p><a href="#guide" class="text-stone-500 font-medium hover:text-stone-600 inline-flex items-center cursor-pointer">探寻详情 <i class="fa-solid fa-long-arrow-right ml-2"></i></a></div>
                 </div>
-
-                <!-- 摩崖石刻 - 替换为实际照片 -->
                 <div class="bg-white rounded-xl shadow-elegant hover:shadow-hover transition-all overflow-hidden cursor-pointer w-full" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                    <!-- 核心修改：替换图标为摩崖石刻照片 -->
-                    <div class="h-48 img-hover-zoom">
-                        <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/901cc93d71e04cef9cc4520a22a6fec1.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322181940E0008A7286AC87BC3C6D&rrcfp=8a172a1a&x-expires=1774779581&x-signature=phwsYcAvcXoVFkb3j7FZOpO5s0s%3D" 
-                             alt="羊山石城摩崖石刻" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-stone-800 mb-3">摩崖石刻</h3>
-                        <p class="text-ink-600 mb-4">
-                            历代文人墨客的题咏石刻，朱红墨迹与苍劲石壁相映，墨香石韵千古流传。
-                        </p>
-                        <a href="#guide" class="text-stone-500 font-medium hover:text-stone-600 inline-flex items-center cursor-pointer">
-                            探寻详情 <i class="fa-solid fa-long-arrow-right ml-2"></i>
-                        </a>
-                    </div>
+                    <div class="h-48 img-hover-zoom"><img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/901cc93d71e04cef9cc4520a22a6fec1.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322181940E0008A7286AC87BC3C6D&rrcfp=8a172a1a&x-expires=1774779581&x-signature=phwsYcAvcXoVFkb3j7FZOpO5s0s%3D" alt="羊山石城摩崖石刻" class="w-full h-full object-cover"></div>
+                    <div class="p-6"><h3 class="text-xl font-semibold text-stone-800 mb-3">摩崖石刻</h3><p class="text-ink-600 mb-4">历代文人墨客的题咏石刻，朱红墨迹与苍劲石壁相映，墨香石韵千古流传。</p><a href="#guide" class="text-stone-500 font-medium hover:text-stone-600 inline-flex items-center cursor-pointer">探寻详情 <i class="fa-solid fa-long-arrow-right ml-2"></i></a></div>
                 </div>
-
-                <!-- 古采石宕 - 核心修改：替换为用户新提供的古采石宕图片作为背景 -->
                 <div class="bg-white rounded-xl shadow-elegant hover:shadow-hover transition-all overflow-hidden cursor-pointer w-full" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                    <!-- 改为背景图模式，更好地展示图片 -->
-                    <div class="h-48 img-hover-zoom relative">
-                        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                             style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/caa5a51ba2dc495e9e498212b836e9b8.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322185221EC8EA17FBB00B5B596B3&rrcfp=8a172a1a&x-expires=1774781541&x-signature=egm5%2FUEr3Sm5%2FOn3mlPUsC%2Bwfqk%3D');
-                                    filter: brightness(0.95);">
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-stone-800 mb-3">古采石宕</h3>
-                        <p class="text-ink-600 mb-4">
-                            保存完好的古采石遗址，清晰的凿痕见证着古代工匠的智慧与汗水。
-                        </p>
-                        <a href="#guide" class="text-stone-500 font-medium hover:text-stone-600 inline-flex items-center cursor-pointer">
-                            探寻详情 <i class="fa-solid fa-long-arrow-right ml-2"></i>
-                        </a>
-                    </div>
+                    <div class="h-48 img-hover-zoom relative"><div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/caa5a51ba2dc495e9e498212b836e9b8.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322185221EC8EA17FBB00B5B596B3&rrcfp=8a172a1a&x-expires=1774781541&x-signature=egm5%2FUEr3Sm5%2FOn3mlPUsC%2Bwfqk%3D');filter: brightness(0.95);"></div></div>
+                    <div class="p-6"><h3 class="text-xl font-semibold text-stone-800 mb-3">古采石宕</h3><p class="text-ink-600 mb-4">保存完好的古采石遗址，清晰的凿痕见证着古代工匠的智慧与汗水。</p><a href="#guide" class="text-stone-500 font-medium hover:text-stone-600 inline-flex items-center cursor-pointer">探寻详情 <i class="fa-solid fa-long-arrow-right ml-2"></i></a></div>
                 </div>
             </div>
-
-            <!-- 石刻记忆区域 - 改为轮播图展示 -->
             <div class="bg-stone-100 rounded-xl p-8 w-full mb-8">
-                <!-- 轮播图容器 -->
                 <div class="carousel-container mb-8">
                     <div class="carousel-slides" id="carouselSlides">
-                        <!-- 轮播slide 1 -->
                         <div class="carousel-slide" style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/a0914fea2a594fc78065cfd9cc13dbd1.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=bYfaLeo318fd%2BN%2BXmbSDnq3TngI%3D')">
-                            <div class="carousel-content">
-                                <h3 class="text-2xl font-semibold text-white mb-2">石刻记忆</h3>
-                                <p class="text-white/90 max-w-2xl mx-auto">
-                                    镌刻心声，留存印记<br>
-                                    写下你的留言与感悟，让旅途印记在此长存，与万千同路人共筑石刻记忆。
-                                </p>
-                            </div>
+                            <div class="carousel-content"><h3 class="text-2xl font-semibold text-white mb-2">石刻记忆</h3><p class="text-white/90 max-w-2xl mx-auto">镌刻心声，留存印记<br>写下你的留言与感悟，让旅途印记在此长存，与万千同路人共筑石刻记忆。</p></div>
                         </div>
-                        <!-- 轮播slide 2 -->
                         <div class="carousel-slide" style="background-image: url('https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e84d1c603d244e02a99ff7c97c88b3da.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=cTrgROLc6ik3%2BW2drFlDM%2FxKw2w%3D')">
-                            <div class="carousel-content">
-                                <h3 class="text-2xl font-semibold text-white mb-2">千年佛韵</h3>
-                                <p class="text-white/90 max-w-2xl mx-auto">
-                                    石中藏佛，佛映石光<br>
-                                    一凿一锤间，是信仰的传承，是岁月的沉淀，是心灵的归处。
-                                </p>
-                            </div>
+                            <div class="carousel-content"><h3 class="text-2xl font-semibold text-white mb-2">千年佛韵</h3><p class="text-white/90 max-w-2xl mx-auto">石中藏佛，佛映石光<br>一凿一锤间，是信仰的传承，是岁月的沉淀，是心灵的归处。</p></div>
                         </div>
-                        <!-- 轮播slide 3 -->
                         <div class="carousel-slide" style="background-image: url('https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c23d2398bc3f4e6893492c2a8c6e1a5c.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=TuoRJA4z0JOe0qzm0xV4mshVmwI%3D')">
-                            <div class="carousel-content">
-                                <h3 class="text-2xl font-semibold text-white mb-2">石语心声</h3>
-                                <p class="text-white/90 max-w-2xl mx-auto">
-                                    山石无言，却记春秋<br>
-                                    每一道纹理都是时光的印记，每一次驻足都是心灵的对话。
-                                </p>
-                            </div>
+                            <div class="carousel-content"><h3 class="text-2xl font-semibold text-white mb-2">石语心声</h3><p class="text-white/90 max-w-2xl mx-auto">山石无言，却记春秋<br>每一道纹理都是时光的印记，每一次驻足都是心灵的对话。</p></div>
                         </div>
-                        <!-- 轮播slide 4 -->
                         <div class="carousel-slide" style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5f7839a3e18d421f9139795ff1001251.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XJnUoBF37p6mfGv9t6gafdS6B%2Fs%3D')">
-                            <div class="carousel-content">
-                                <h3 class="text-2xl font-semibold text-white mb-2">石窟寻踪</h3>
-                                <p class="text-white/90 max-w-2xl mx-auto">
-                                    一步一景，一窟一禅<br>
-                                    穿梭于千年石窟之间，感受自然与人文的完美交融。
-                                </p>
-                            </div>
+                            <div class="carousel-content"><h3 class="text-2xl font-semibold text-white mb-2">石窟寻踪</h3><p class="text-white/90 max-w-2xl mx-auto">一步一景，一窟一禅<br>穿梭于千年石窟之间，感受自然与人文的完美交融。</p></div>
                         </div>
                     </div>
-                    <!-- 轮播控制按钮 -->
-                    <button class="carousel-control carousel-prev" id="carouselPrev">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-control carousel-next" id="carouselNext">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                    <!-- 轮播指示器 -->
+                    <button class="carousel-control carousel-prev" id="carouselPrev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="carousel-control carousel-next" id="carouselNext"><i class="fa-solid fa-chevron-right"></i></button>
                     <div class="carousel-dots" id="carouselDots">
                         <span class="carousel-dot active" data-index="0"></span>
                         <span class="carousel-dot" data-index="1"></span>
@@ -700,196 +335,315 @@
                         <span class="carousel-dot" data-index="3"></span>
                     </div>
                 </div>
-                
-                <!-- 石窟造像图片画廊 -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 gallery-grid">
-                    <!-- 图片1：普贤菩萨造像 - 已替换为新图片 -->
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
-                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/7052068178124a949e526030d572e029.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032220240004FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774786440&x-signature=7c4n7J1q2K3Qo8D8z9L6X5C7V8B9N8M7B6V5C4X3Z2A1S9D8F7G6H5J4K3L2M1N0B9V8C7X6D5S4A3F2G1H0J9K8L7M6N5B4V3C2X1D0S9A8F7G6H5J4K3L2M1N0B9V8C7X6D5S4A3F2G1H0J9K8L7M6N5B4V3C2X1D0S9A8F7G6H5J4K3L2M1N0=" 
-                             alt="普贤菩萨造像" 
-                             class="w-full h-full object-cover"
-                             data-index="0">
-                    </div>
-                    
-                    <!-- 图片2：观音造像 -->
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
-                        <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e84d1c603d244e02a99ff7c97c88b3da.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=cTrgROLc6ik3%2BW2drFlDM%2FxKw2w%3D" 
-                             alt="观音造像" 
-                             class="w-full h-full object-cover"
-                             data-index="1">
-                    </div>
-                    
-                    <!-- 图片3：立姿菩萨造像 -->
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
-                        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c23d2398bc3f4e6893492c2a8c6e1a5c.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=TuoRJA4z0JOe0qzm0xV4mshVmwI%3D" 
-                             alt="立姿菩萨造像" 
-                             class="w-full h-full object-cover"
-                             data-index="2">
-                    </div>
-                    
-                    <!-- 图片4：石窟长廊造像 -->
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
-                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5f7839a3e18d421f9139795ff1001251.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XJnUoBF37p6mfGv9t6gafdS6B%2Fs%3D" 
-                             alt="石窟长廊造像" 
-                             class="w-full h-full object-cover"
-                             data-index="3">
-                    </div>
-                    
-                    <!-- 图片5：石窟光影 -->
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
-                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/a034f9a40170477c97c978ee202b1cf8.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=JiU5eU5gBMi905viJS99hvHOzPg%3D" 
-                             alt="石窟光影" 
-                             class="w-full h-full object-cover"
-                             data-index="4">
-                    </div>
-                    
-                    <!-- 图片6：四大天王造像 -->
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
-                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/86d6b3f751554a0bb83ff020fb15bf69.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XIX34ZK0ce3m4vFYu22lQK4eyXg%3D" 
-                             alt="四大天王造像" 
-                             class="w-full h-full object-cover"
-                             data-index="5">
-                    </div>
-                    
-                    <!-- 图片7：佛陀造像 -->
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
-                        <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/153821f5156e44a394fbd3099114f014.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=noMAohoVTcx%2FFOmp8dQvepJJx%2B8%3D" 
-                             alt="佛陀造像" 
-                             class="w-full h-full object-cover"
-                             data-index="6">
-                    </div>
-                    
-                    <!-- 图片8：地藏王造像 -->
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom">
-                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/6af4944e37054baa8488f80f03ce4a8e.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=f4VLak1QD0%2B2YGFR9yIDRIu549c%3D" 
-                             alt="地藏王造像" 
-                             class="w-full h-full object-cover"
-                             data-index="7">
-                    </div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/7052068178124a949e526030d572e029.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032220240004FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774786440&x-signature=7c4n7J1q2K3Qo8D8z9L6X5C7V8B9N8M7B6V5C4X3Z2A1S9D8F7G6H5J4K3L2M1N0B9V8C7X6D5S4A3F2G1H0J9K8L7M6N5B4V3C2X1D0S9A8F7G6H5J4K3L2M1N0B9V8C7X6D5S4A3F2G1H0J9K8L7M6N5B4V3C2X1D0S9A8F7G6H5J4K3L2M1N0=" alt="普贤菩萨造像" class="w-full h-full object-cover" data-index="0"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e84d1c603d244e02a99ff7c97c88b3da.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=cTrgROLc6ik3%2BW2drFlDM%2FxKw2w%3D" alt="观音造像" class="w-full h-full object-cover" data-index="1"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c23d2398bc3f4e6893492c2a8c6e1a5c.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=TuoRJA4z0JOe0qzm0xV4mshVmwI%3D" alt="立姿菩萨造像" class="w-full h-full object-cover" data-index="2"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5f7839a3e18d421f9139795ff1001251.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XJnUoBF37p6mfGv9t6gafdS6B%2Fs%3D" alt="石窟长廊造像" class="w-full h-full object-cover" data-index="3"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/a034f9a40170477c97c978ee202b1cf8.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=JiU5eU5gBMi905viJS99hvHOzPg%3D" alt="石窟光影" class="w-full h-full object-cover" data-index="4"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/86d6b3f751554a0bb83ff020fb15bf69.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XIX34ZK0ce3m4vFYu22lQK4eyXg%3D" alt="四大天王造像" class="w-full h-full object-cover" data-index="5"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/153821f5156e44a394fbd3099114f014.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=noMAohoVTcx%2FFOmp8dQvepJJx%2B8%3D" alt="佛陀造像" class="w-full h-full object-cover" data-index="6"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/6af4944e37054baa8488f80f03ce4a8e.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=f4VLak1QD0%2B2YGFR9yIDRIu549c%3D" alt="地藏王造像" class="w-full h-full object-cover" data-index="7"></div>
                 </div>
-                
-                <!-- 游客留言入口 -->
-                <div class="text-center mt-8">
-                    <a href="#contact" class="inline-block text-stone-500 font-medium hover:text-stone-600 cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-                        游客留言入口<i class="fa-solid fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
+                <div class="text-center mt-8"><a href="#contact" class="inline-block text-stone-500 font-medium hover:text-stone-600 cursor-pointer">游客留言入口<i class="fa-solid fa-arrow-right ml-2"></i></a></div>
             </div>
         </div>
     </section>
 
-    <!-- 游赏指南 - 精致卡片设计（全部可点击跳转） -->
     <section id="guide" class="bg-white scroll-mt-header content-auto">
         <div class="container content-wrapper">
-            <!-- 标题区 -->
             <div class="text-center mb-12 md:mb-16">
                 <h2 class="text-[clamp(1.75rem,5vw,2.5rem)] font-bold text-stone-800 mb-4">游赏指南</h2>
                 <div class="w-16 h-1 bg-stone-500 mx-auto mb-6"></div>
-                <p class="max-w-2xl mx-auto text-ink-500 text-lg">
-                    贴心实用的游玩信息，让您的羊山石城之旅舒心惬意
-                </p>
+                <p class="max-w-2xl mx-auto text-ink-500 text-lg">贴心实用的游玩信息，让您的羊山石城之旅舒心惬意</p>
             </div>
-
             <div class="grid md:grid-cols-2 gap-8 md:gap-12">
-                <!-- 基本信息卡片 -->
                 <div class="bg-stone-50 rounded-xl shadow-elegant p-8 border border-stone-100 w-full">
-                    <h3 class="text-xl font-semibold text-stone-800 mb-6 flex items-center">
-                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-stone-500 text-white mr-4">
-                            <i class="fa-solid fa-info"></i>
-                        </span>
-                        基本信息
-                    </h3>
-                    
+                    <h3 class="text-xl font-semibold text-stone-800 mb-6 flex items-center"><span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-stone-500 text-white mr-4"><i class="fa-solid fa-info"></i></span>基本信息</h3>
                     <div class="space-y-6">
-                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-                            <div class="bg-stone-100 rounded-full p-2 mr-4 mt-1">
-                                <i class="fa-solid fa-map-marker text-stone-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-stone-800 mb-1">地理位置</h4>
-                                <p class="text-ink-600">浙江省绍兴市柯桥区齐贤街道羊山风景区</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-                            <div class="bg-stone-100 rounded-full p-2 mr-4 mt-1">
-                                <i class="fa-solid fa-clock text-stone-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-stone-800 mb-1">开放时间</h4>
-                                <p class="text-ink-600">全年开放 08:00 - 17:00（16:30停止入园）</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-                            <div class="bg-stone-100 rounded-full p-2 mr-4 mt-1">
-                                <i class="fa-solid fa-ticket text-stone-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-stone-800 mb-1">门票价格</h4>
-                                <p class="text-ink-600">成人票 20元/人，学生票 10元/人，60岁以上老人免票</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-                            <div class="bg-stone-100 rounded-full p-2 mr-4 mt-1">
-                                <i class="fa-solid fa-phone text-stone-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-stone-800 mb-1">咨询电话</h4>
-                                <p class="text-ink-600">0575-85186888</p>
-                            </div>
-                        </div>
+                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})"><div class="bg-stone-100 rounded-full p-2 mr-4 mt-1"><i class="fa-solid fa-map-marker text-stone-500"></i></div><div><h4 class="font-medium text-stone-800 mb-1">地理位置</h4><p class="text-ink-600">浙江省绍兴市柯桥区齐贤街道羊山风景区</p></div></div>
+                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})"><div class="bg-stone-100 rounded-full p-2 mr-4 mt-1"><i class="fa-solid fa-clock text-stone-500"></i></div><div><h4 class="font-medium text-stone-800 mb-1">开放时间</h4><p class="text-ink-600">全年开放 08:00 - 17:00（16:30停止入园）</p></div></div>
+                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})"><div class="bg-stone-100 rounded-full p-2 mr-4 mt-1"><i class="fa-solid fa-ticket text-stone-500"></i></div><div><h4 class="font-medium text-stone-800 mb-1">门票价格</h4><p class="text-ink-600">成人票 20元/人，学生票 10元/人，60岁以上老人免票</p></div></div>
+                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})"><div class="bg-stone-100 rounded-full p-2 mr-4 mt-1"><i class="fa-solid fa-phone text-stone-500"></i></div><div><h4 class="font-medium text-stone-800 mb-1">咨询电话</h4><p class="text-ink-600">0575-85186888</p></div></div>
                     </div>
                 </div>
-
-                <!-- 交通指南卡片 -->
                 <div class="bg-stone-50 rounded-xl shadow-elegant p-8 border border-stone-100 w-full">
-                    <h3 class="text-xl font-semibold text-stone-800 mb-6 flex items-center">
-                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-stone-500 text-white mr-4">
-                            <i class="fa-solid fa-car"></i>
-                        </span>
-                        交通指南
-                    </h3>
-                    
+                    <h3 class="text-xl font-semibold text-stone-800 mb-6 flex items-center"><span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-stone-500 text-white mr-4"><i class="fa-solid fa-car"></i></span>交通指南</h3>
                     <div class="space-y-6">
-                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-                            <div class="bg-stone-100 rounded-full p-2 mr-4 mt-1">
-                                <i class="fa-solid fa-car-side text-stone-500"></i>
+                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})"><div class="bg-stone-100 rounded-full p-2 mr-4 mt-1"><i class="fa-solid fa-car-side text-stone-500"></i></div><div><h4 class="font-medium text-stone-800 mb-1">自驾前往</h4><p class="text-ink-600">绍兴市区：沿群贤路向东，转羊山路即达（车程约20分钟）<br>杭州市区：杭甬高速柯桥出口下，沿金柯桥大道向北（车程约1小时）</p></div></div>
+                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})"><div class="bg-stone-100 rounded-full p-2 mr-4 mt-1"><i class="fa-solid fa-bus text-stone-500"></i></div><div><h4 class="font-medium text-stone-800 mb-1">公共交通</h4><p class="text-ink-600">绍兴市区：18路、807路、815路至羊山公园站下车<br>柯桥城区：808路、818路至羊山石城站下车</p></div></div>
+                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})"><div class="bg-stone-100 rounded-full p-2 mr-4 mt-1"><i class="fa-solid fa-lightbulb text-stone-500"></i></div><div><h4 class="font-medium text-stone-800 mb-1">游玩建议</h4><p class="text-ink-600">建议游玩时长：2-3小时<br>最佳游玩季节：春秋两季（3-5月、9-11月）<br>注意事项：部分路段台阶较陡，建议着舒适鞋履</p></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 石佛羊小游戏 集成区域 -->
+            <div class="mt-16 p-6 bg-stone-50 rounded-xl shadow-elegant border border-stone-200">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-stone-800 mb-2">🐏 石佛羊 · 羊山石境小游戏</h3>
+                    <p class="text-ink-600">操控石佛羊收集莲花，穿越石境，体验千年石窟乐趣</p>
+                </div>
+                <div id="game-container" class="w-full overflow-hidden flex justify-center">
+                    <style>
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                            user-select: none;
+                            -webkit-tap-highlight-color: transparent;
+                        }
+
+                        #game-container {
+                            background: #1a1612;
+                            padding: 20px;
+                            border-radius: 12px;
+                        }
+
+                        .game-wrapper {
+                            background: #2c241e;
+                            padding: 20px 24px 24px 24px;
+                            border-radius: 32px;
+                            box-shadow: 0 16px 0 #110e0a;
+                            border: 2px solid #b88a5a;
+                            position: relative;
+                        }
+
+                        .game-wrapper::before {
+                            content: "卍";
+                            position: absolute;
+                            top: -12px;
+                            left: 30px;
+                            font-size: 28px;
+                            color: #dbb06c;
+                            background: #2c241e;
+                            padding: 0 12px;
+                            font-weight: bold;
+                        }
+
+                        .game-wrapper::after {
+                            content: "卍";
+                            position: absolute;
+                            top: -12px;
+                            right: 30px;
+                            font-size: 28px;
+                            color: #dbb06c;
+                            background: #2c241e;
+                            padding: 0 12px;
+                        }
+
+                        canvas {
+                            display: block;
+                            margin: 0 auto;
+                            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+                            image-rendering: crisp-edges;
+                            image-rendering: pixelated;
+                            cursor: pointer;
+                            border-radius: 20px;
+                            border: 3px solid #e2bc7c;
+                            max-width: 100%;
+                            height: auto;
+                        }
+
+                        .info-bar {
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 18px;
+                            gap: 16px;
+                            flex-wrap: wrap;
+                        }
+
+                        .info-item {
+                            background: #18120ccc;
+                            backdrop-filter: blur(4px);
+                            padding: 6px 18px;
+                            border-radius: 60px;
+                            font-size: 1rem;
+                            color: #ffefcf;
+                            font-weight: bold;
+                            border: 1px solid #cb9a5e;
+                        }
+
+                        .info-item span {
+                            color: #ffcf7a;
+                            font-size: 1.2rem;
+                            margin-right: 6px;
+                        }
+
+                        .side-panel {
+                            background: #2c241e;
+                            border-radius: 32px;
+                            padding: 20px 16px;
+                            border: 3px solid #c79a64;
+                            box-shadow: 0 12px 0 #110e0a;
+                            min-width: 200px;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 16px;
+                        }
+
+                        .level-selector {
+                            background: #1f1812;
+                            border-radius: 24px;
+                            padding: 16px 12px;
+                            text-align: center;
+                        }
+
+                        .level-selector label {
+                            font-size: 1.2rem;
+                            color: #ffdf9c;
+                            display: block;
+                            margin-bottom: 8px;
+                        }
+
+                        select {
+                            font-family: '幼圆', monospace;
+                            font-size: 1rem;
+                            padding: 6px 12px;
+                            border-radius: 60px;
+                            background: #ecd5a8;
+                            border: 2px solid #b87a3c;
+                            font-weight: bold;
+                            cursor: pointer;
+                            width: 100%;
+                            text-align: center;
+                        }
+
+                        .info-panel-simple {
+                            background: #1f1812;
+                            border-radius: 24px;
+                            padding: 12px;
+                            text-align: center;
+                        }
+
+                        .info-panel-simple div {
+                            font-size: 1rem;
+                            color: #fff0cf;
+                            margin: 8px 0;
+                        }
+
+                        .info-panel-simple span {
+                            color: #ffcf7a;
+                            font-size: 1.5rem;
+                            font-weight: bold;
+                        }
+
+                        .pixel-btn {
+                            background: #7a5a3c;
+                            border: none;
+                            font-family: '幼圆', 'Yuanti SC', monospace;
+                            font-weight: bold;
+                            font-size: 1rem;
+                            padding: 8px 12px;
+                            border-radius: 60px;
+                            color: #fff7df;
+                            cursor: pointer;
+                            box-shadow: 0 5px 0 #3b2a1c;
+                            transition: 0.05s linear;
+                            width: 100%;
+                        }
+
+                        .pixel-btn:active {
+                            transform: translateY(3px);
+                            box-shadow: 0 2px 0 #3b2a1c;
+                        }
+
+                        .start-tip {
+                            text-align: center;
+                            margin-top: 14px;
+                            font-size: 1rem;
+                            background: #000000aa;
+                            backdrop-filter: blur(3px);
+                            display: inline-block;
+                            width: auto;
+                            padding: 6px 16px;
+                            border-radius: 60px;
+                            color: #fff0bf;
+                            font-weight: bold;
+                        }
+
+                        .flex-center {
+                            display: flex;
+                            justify-content: center;
+                        }
+
+                        @keyframes starFloat {
+                            0% { transform: scale(0.2) translateY(30px); opacity: 0; }
+                            40% { transform: scale(1.2); opacity: 1; }
+                            100% { transform: scale(1) translateY(-70px); opacity: 0; }
+                        }
+
+                        @keyframes fadeInOut {
+                            0% { opacity: 0; transform: scale(0.8); }
+                            20% { opacity: 1; transform: scale(1); }
+                            80% { opacity: 1; }
+                            100% { opacity: 0; transform: scale(1.2); }
+                        }
+
+                        .toast-message {
+                            position: fixed;
+                            bottom: 30%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            background: #2a211aee;
+                            backdrop-filter: blur(12px);
+                            padding: 12px 28px;
+                            border-radius: 60px;
+                            color: #ffeaaf;
+                            font-size: 1.2rem;
+                            font-weight: bold;
+                            font-family: '幼圆', monospace;
+                            border: 2px solid #e2b87a;
+                            z-index: 300;
+                            animation: fadeInOut 1.6s ease forwards;
+                            white-space: nowrap;
+                            pointer-events: none;
+                        }
+
+                        @media (max-width: 768px) {
+                            .game-wrapper {
+                                padding: 16px;
+                                border-radius: 24px;
+                            }
+                            .side-panel {
+                                margin-top: 16px;
+                                width: 100%;
+                            }
+                            .info-item {
+                                font-size: 0.8rem;
+                                padding: 4px 12px;
+                            }
+                            .start-tip {
+                                font-size: 0.8rem;
+                            }
+                        }
+                    </style>
+                    <div class="game-container" style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: flex-start;">
+                        <div class="game-wrapper">
+                            <canvas id="gameCanvas" width="1000" height="550"></canvas>
+                            <div class="info-bar">
+                                <div class="info-item"><span>🪷</span> 莲花 <span id="scoreValue">0</span>/<span id="needScore">8</span></div>
+                                <div class="info-item"><span>⭐</span> 总分 <span id="totalScoreSpan">0</span></div>
+                                <div class="info-item"><span>🗻</span> 第 <span id="levelNum">1</span> 境 · <span id="dayNight">白昼</span></div>
                             </div>
-                            <div>
-                                <h4 class="font-medium text-stone-800 mb-1">自驾前往</h4>
-                                <p class="text-ink-600">
-                                    绍兴市区：沿群贤路向东，转羊山路即达（车程约20分钟）<br>
-                                    杭州市区：杭甬高速柯桥出口下，沿金柯桥大道向北（车程约1小时）
-                                </p>
+                            <div class="flex-center" style="margin-top: 14px;">
+                                <div class="start-tip" id="startTip">⚡ 按 WASD / 方向键 移动 & 跳跃 ⚡</div>
                             </div>
                         </div>
-                        
-                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-                            <div class="bg-stone-100 rounded-full p-2 mr-4 mt-1">
-                                <i class="fa-solid fa-bus text-stone-500"></i>
+
+                        <div class="side-panel">
+                            <div class="level-selector">
+                                <label>📜 羊山石境</label>
+                                <select id="levelSelect">
+                                    <option value="1">第一境 · 白昼</option>
+                                    <option value="2">第二境 · 黑夜</option>
+                                    <option value="3">第三境 · 暮境</option>
+                                </select>
+                                <button class="pixel-btn" id="applyLevelBtn" style="margin-top: 12px;">✨ 进入此境 ✨</button>
                             </div>
-                            <div>
-                                <h4 class="font-medium text-stone-800 mb-1">公共交通</h4>
-                                <p class="text-ink-600">
-                                    绍兴市区：18路、807路、815路至羊山公园站下车<br>
-                                    柯桥城区：808路、818路至羊山石城站下车
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-                            <div class="bg-stone-100 rounded-full p-2 mr-4 mt-1">
-                                <i class="fa-solid fa-lightbulb text-stone-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-stone-800 mb-1">游玩建议</h4>
-                                <p class="text-ink-600">
-                                    建议游玩时长：2-3小时<br>
-                                    最佳游玩季节：春秋两季（3-5月、9-11月）<br>
-                                    注意事项：部分路段台阶较陡，建议着舒适鞋履
-                                </p>
+                            <div class="info-panel-simple">
+                                <div>🏆 累计莲花</div>
+                                <div><span id="totalCollectedSpan">0</span></div>
+                                <button class="pixel-btn" id="restartBtn" style="margin-top: 12px;">🔄 重开石境</button>
                             </div>
                         </div>
                     </div>
@@ -898,516 +652,693 @@
         </div>
     </section>
 
-    <!-- 预约咨询 - 精致表单设计（全部可点击跳转） -->
     <section id="contact" class="bg-stone-50 scroll-mt-header content-auto">
         <div class="container content-wrapper">
-            <!-- 标题区 -->
             <div class="text-center mb-12 md:mb-16">
                 <h2 class="text-[clamp(1.75rem,5vw,2.5rem)] font-bold text-stone-800 mb-4">预约咨询</h2>
                 <div class="w-16 h-1 bg-stone-500 mx-auto mb-6"></div>
-                <p class="max-w-2xl mx-auto text-ink-500 text-lg">
-                    如有任何疑问或团队预约需求，欢迎随时与我们联系
-                </p>
+                <p class="max-w-2xl mx-auto text-ink-500 text-lg">如有任何疑问或团队预约需求，欢迎随时与我们联系</p>
             </div>
-
             <div class="grid md:grid-cols-2 gap-8 md:gap-12">
-                <!-- 联系信息 -->
                 <div class="space-y-8 w-full">
                     <h3 class="text-xl font-semibold text-stone-800">联系方式</h3>
-                    
                     <div class="space-y-6">
-                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                            <div class="bg-stone-100 rounded-full p-3 mr-4">
-                                <i class="fa-solid fa-map-marker text-stone-500 text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-stone-800 mb-1">景区地址</h4>
-                                <p class="text-ink-600">浙江省绍兴市柯桥区齐贤街道羊山风景区管理处</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                            <div class="bg-stone-100 rounded-full p-3 mr-4">
-                                <i class="fa-solid fa-phone text-stone-500 text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-stone-800 mb-1">咨询热线</h4>
-                                <p class="text-ink-600">0575-85186888（工作时间：8:00-17:00）</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-                            <div class="bg-stone-100 rounded-full p-3 mr-4">
-                                <i class="fa-solid fa-envelope text-stone-500 text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-stone-800 mb-1">电子邮箱</h4>
-                                <p class="text-ink-600">yangshanshicheng@163.com</p>
-                            </div>
-                        </div>
+                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})"><div class="bg-stone-100 rounded-full p-3 mr-4"><i class="fa-solid fa-map-marker text-stone-500 text-xl"></i></div><div><h4 class="font-medium text-stone-800 mb-1">景区地址</h4><p class="text-ink-600">浙江省绍兴市柯桥区齐贤街道羊山风景区管理处</p></div></div>
+                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})"><div class="bg-stone-100 rounded-full p-3 mr-4"><i class="fa-solid fa-phone text-stone-500 text-xl"></i></div><div><h4 class="font-medium text-stone-800 mb-1">咨询热线</h4><p class="text-ink-600">0575-85186888（工作时间：8:00-17:00）</p></div></div>
+                        <div class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})"><div class="bg-stone-100 rounded-full p-3 mr-4"><i class="fa-solid fa-envelope text-stone-500 text-xl"></i></div><div><h4 class="font-medium text-stone-800 mb-1">电子邮箱</h4><p class="text-ink-600">yangshanshicheng@163.com</p></div></div>
                     </div>
-
-                    <!-- 核心修改：替换为实际的二维码图片 -->
                     <div class="bg-white rounded-xl shadow-elegant p-6 inline-block border border-stone-100 cursor-pointer w-full max-w-xs mx-auto" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
                         <h4 class="font-medium text-stone-800 mb-3 text-center">景区AR导航</h4>
                         <p class="text-ink-500 text-sm text-center mb-3">扫码关注，开启探索之旅吧！</p>
-                        <!-- 替换原来的图标为实际的二维码图片 -->
                         <div class="w-40 h-40 rounded mx-auto flex items-center justify-center overflow-hidden">
-                            <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/16a301690f9448069489ac020258f4c7.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322181037E5E720EC427DA0A37A27&rrcfp=8a172a1a&x-expires=1774779037&x-signature=9wOWWVAvdA19n1bfvWHH1aJT6ic%3D" 
-                                 alt="景区AR导航二维码" 
-                                 class="w-full h-full object-contain">
+                            <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/16a301690f9448069489ac020258f4c7.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322181037E5E720EC427DA0A37A27&rrcfp=8a172a1a&x-expires=1774779037&x-signature=9wOWWVAvdA19n1bfvWHH1aJT6ic%3D" alt="景区AR导航二维码" class="w-full h-full object-contain">
                         </div>
                     </div>
                 </div>
-
-                <!-- 咨询表单 - 精致化（提交按钮可点击） -->
                 <div class="bg-white rounded-xl shadow-elegant p-8 border border-stone-100 w-full">
                     <h3 class="text-xl font-semibold text-stone-800 mb-6">在线预约咨询</h3>
-                    
                     <form id="contactForm" class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-ink-700 mb-2 font-medium">姓名 <span class="text-accent-600">*</span></label>
-                            <input type="text" id="name" 
-                                   class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-500 focus:border-transparent transition-all" 
-                                   placeholder="请输入您的姓名" required>
-                        </div>
-                        
-                        <div>
-                            <label for="phone" class="block text-ink-700 mb-2 font-medium">联系电话 <span class="text-accent-600">*</span></label>
-                            <input type="tel" id="phone" 
-                                   class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-500 focus:border-transparent transition-all" 
-                                   placeholder="请输入您的手机号码" pattern="^1[3-9]\d{9}$" required>
-                            <p class="text-ink-500 text-sm mt-1">请输入有效的11位手机号码</p>
-                        </div>
-                        
-                        <div>
-                            <label for="consultType" class="block text-ink-700 mb-2 font-medium">咨询类型</label>
-                            <select id="consultType" 
-                                    class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-500 focus:border-transparent transition-all">
-                                <option value="">请选择咨询类型</option>
-                                <option value="ticket">门票咨询</option>
-                                <option value="group">团队预约</option>
-                                <option value="visit">游玩咨询</option>
-                                <option value="other">其他问题</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="message" class="block text-ink-700 mb-2 font-medium">留言内容 <span class="text-accent-600">*</span></label>
-                            <textarea id="message" rows="5" 
-                                      class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-500 focus:border-transparent transition-all resize-none" 
-                                      placeholder="请详细描述您的问题或需求" required></textarea>
-                        </div>
-                        
-                        <button type="submit" 
-                                class="w-full bg-stone-500 hover:bg-stone-600 text-white font-medium py-3 px-6 rounded-lg transition-all hover:shadow-lg transform hover:-translate-y-1">
-                            提交咨询 <i class="fa-solid fa-paper-plane ml-2"></i>
-                        </button>
+                        <div><label for="name" class="block text-ink-700 mb-2 font-medium">姓名 <span class="text-accent-600">*</span></label><input type="text" id="name" class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-500 focus:border-transparent transition-all" placeholder="请输入您的姓名" required></div>
+                        <div><label for="phone" class="block text-ink-700 mb-2 font-medium">联系电话 <span class="text-accent-600">*</span></label><input type="tel" id="phone" class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-500 focus:border-transparent transition-all" placeholder="请输入您的手机号码" pattern="^1[3-9]\d{9}$" required><p class="text-ink-500 text-sm mt-1">请输入有效的11位手机号码</p></div>
+                        <div><label for="consultType" class="block text-ink-700 mb-2 font-medium">咨询类型</label><select id="consultType" class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-500 focus:border-transparent transition-all"><option value="">请选择咨询类型</option><option value="ticket">门票咨询</option><option value="group">团队预约</option><option value="visit">游玩咨询</option><option value="other">其他问题</option></select></div>
+                        <div><label for="message" class="block text-ink-700 mb-2 font-medium">留言内容 <span class="text-accent-600">*</span></label><textarea id="message" rows="5" class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-500 focus:border-transparent transition-all resize-none" placeholder="请详细描述您的问题或需求" required></textarea></div>
+                        <button type="submit" class="w-full bg-stone-500 hover:bg-stone-600 text-white font-medium py-3 px-6 rounded-lg transition-all hover:shadow-lg transform hover:-translate-y-1">提交咨询 <i class="fa-solid fa-paper-plane ml-2"></i></button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 页脚 - 精致化设计（所有链接可点击跳转） -->
     <footer class="bg-stone-800 text-white py-12 w-full">
         <div class="container">
             <div class="grid md:grid-cols-4 gap-6 md:gap-8 mb-8">
-                <!-- 品牌区 -->
-                <div>
-                    <div class="flex items-center space-x-2 mb-4 cursor-pointer" onclick="document.querySelector('#home').scrollIntoView({behavior:'smooth'})">
-                        <span class="text-stone-300 text-2xl"><i class="fa-solid fa-gopuram"></i></span>
-                        <span class="text-xl font-bold tracking-wider">羊山石城</span>
-                    </div>
-                    <p class="text-stone-400 mb-4 text-sm">
-                        千年采石文化，江南石窟奇观<br>
-                        浙东地区独树一帜的自然人文瑰宝
-                    </p>
-                </div>
-                
-                <!-- 快速链接 -->
-                <div>
-                    <h3 class="text-lg font-medium mb-4 text-stone-200">快速链接</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#home" class="text-stone-400 hover:text-white transition-colors cursor-pointer">首页</a></li>
-                        <li><a href="#about" class="text-stone-400 hover:text-white transition-colors cursor-pointer">石城溯源</a></li>
-                        <li><a href="#scenic" class="text-stone-400 hover:text-white transition-colors cursor-pointer">石窟胜景</a></li>
-                        <li><a href="#guide" class="text-stone-400 hover:text-white transition-colors cursor-pointer">游赏指南</a></li>
-                    </ul>
-                </div>
-                
-                <!-- 实用信息 -->
-                <div>
-                    <h3 class="text-lg font-medium mb-4 text-stone-200">实用信息</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#contact" class="text-stone-400 hover:text-white transition-colors cursor-pointer">门票预订</a></li>
-                        <li><a href="#contact" class="text-stone-400 hover:text-white transition-colors cursor-pointer">团队接待</a></li>
-                        <li><a href="#contact" class="text-stone-400 hover:text-white transition-colors cursor-pointer">景区公告</a></li>
-                        <li><a href="#guide" class="text-stone-400 hover:text-white transition-colors cursor-pointer">游客须知</a></li>
-                    </ul>
-                </div>
-                
-                <!-- 联系信息 -->
-                <div>
-                    <h3 class="text-lg font-medium mb-4 text-stone-200">联系我们</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex items-start cursor-pointer" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                            <i class="fa-solid fa-map-marker text-stone-400 mt-1 mr-2"></i>
-                            <span class="text-stone-400">绍兴市柯桥区齐贤街道羊山风景区</span>
-                        </li>
-                        <li class="flex items-start cursor-pointer" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                            <i class="fa-solid fa-phone text-stone-400 mt-1 mr-2"></i>
-                            <span class="text-stone-400">0575-85186888</span>
-                        </li>
-                        <li class="flex items-start cursor-pointer" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-                            <i class="fa-solid fa-envelope text-stone-400 mt-1 mr-2"></i>
-                            <span class="text-stone-400">yangshanshicheng@163.com</span>
-                        </li>
-                    </ul>
-                </div>
+                <div><div class="flex items-center space-x-2 mb-4 cursor-pointer" onclick="document.querySelector('#home').scrollIntoView({behavior:'smooth'})"><span class="text-stone-300 text-2xl"><i class="fa-solid fa-gopuram"></i></span><span class="text-xl font-bold tracking-wider">羊山石城</span></div><p class="text-stone-400 mb-4 text-sm">千年采石文化，江南石窟奇观<br>浙东地区独树一帜的自然人文瑰宝</p></div>
+                <div><h3 class="text-lg font-medium mb-4 text-stone-200">快速链接</h3><ul class="space-y-2 text-sm"><li><a href="#home" class="text-stone-400 hover:text-white transition-colors cursor-pointer">首页</a></li><li><a href="#about" class="text-stone-400 hover:text-white transition-colors cursor-pointer">石城溯源</a></li><li><a href="#scenic" class="text-stone-400 hover:text-white transition-colors cursor-pointer">石窟胜景</a></li><li><a href="#guide" class="text-stone-400 hover:text-white transition-colors cursor-pointer">游赏指南</a></li></ul></div>
+                <div><h3 class="text-lg font-medium mb-4 text-stone-200">实用信息</h3><ul class="space-y-2 text-sm"><li><a href="#contact" class="text-stone-400 hover:text-white transition-colors cursor-pointer">咨询预约</a></li><li><a href="#guide" class="text-stone-400 hover:text-white transition-colors cursor-pointer">交通指南</a></li><li><a href="#guide" class="text-stone-400 hover:text-white transition-colors cursor-pointer">开放时间</a></li><li><a href="#scenic" class="text-stone-400 hover:text-white transition-colors cursor-pointer">景点介绍</a></li></ul></div>
+                <div><h3 class="text-lg font-medium mb-4 text-stone-200">关注我们</h3><div class="flex space-x-4"><a href="#" class="text-stone-400 hover:text-white transition-colors text-xl"><i class="fa-brands fa-weixin"></i></a><a href="#" class="text-stone-400 hover:text-white transition-colors text-xl"><i class="fa-brands fa-weibo"></i></a><a href="#" class="text-stone-400 hover:text-white transition-colors text-xl"><i class="fa-brands fa-douyin"></i></a><a href="#" class="text-stone-400 hover:text-white transition-colors text-xl"><i class="fa-brands fa-qq"></i></a></div></div>
             </div>
-            
-            <!-- 版权信息 -->
-            <div class="border-t border-stone-700 pt-8 text-center text-stone-500 text-sm">
-                <p>© 2025 绍兴羊山石城风景区 版权所有 | 浙ICP备12345678号</p>
-                <p class="mt-2">本网站已备案，保护知识产权，严禁未经授权的复制与转载</p>
+            <div class="border-t border-stone-700 pt-8 text-center text-stone-400 text-sm">
+                <p>© 2025 羊山石城风景名胜区 版权所有 | 浙ICP备12345678号</p>
             </div>
         </div>
     </footer>
 
-    <!-- 图片查看器（Lightbox） -->
-    <div id="lightbox" class="lightbox">
-        <div class="lightbox-content">
-            <span class="lightbox-close" id="lightboxClose"><i class="fa-solid fa-times"></i></span>
-            <img src="" alt="石窟造像大图" class="lightbox-img" id="lightboxImg">
-            <div class="lightbox-nav">
-                <button class="lightbox-btn" id="lightboxPrev"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="lightbox-btn" id="lightboxNext"><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript - 优化交互体验 -->
     <script>
-        // DOM加载完成后执行
-        document.addEventListener('DOMContentLoaded', function() {
-            // 性能优化：防抖函数
-            function debounce(func, wait) {
-                let timeout;
-                return function() {
-                    const context = this;
-                    const args = arguments;
-                    clearTimeout(timeout);
-                    timeout = setTimeout(() => func.apply(context, args), wait);
-                };
-            }
+        // 移动端菜单
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+            menuBtn.setAttribute('aria-expanded', !expanded);
+            mobileMenu.setAttribute('aria-hidden', expanded);
+            menuBtn.innerHTML = expanded ? '<i class="fa-solid fa-bars"></i>' : '<i class="fa-solid fa-xmark"></i>';
+        });
 
-            // 移动端菜单切换
-            const menuBtn = document.getElementById('menuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-            
-            if (menuBtn && mobileMenu) {
-                menuBtn.addEventListener('click', () => {
-                    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-                    mobileMenu.classList.toggle('hidden');
-                    menuBtn.setAttribute('aria-expanded', !isExpanded);
-                    mobileMenu.setAttribute('aria-hidden', isExpanded);
-                    
-                    // 切换图标
-                    const icon = menuBtn.querySelector('i');
-                    if (isExpanded) {
-                        icon.classList.replace('fa-times', 'fa-bars');
-                    } else {
-                        icon.classList.replace('fa-bars', 'fa-times');
-                    }
-                });
-            }
-
-            // 导航栏滚动效果 - 防抖优化
-            const header = document.getElementById('header');
-            let lastScrollPos = 0;
-            
-            const handleScroll = debounce(() => {
-                const currentScrollPos = window.pageYOffset;
-                
-                if (header) {
-                    // 导航栏样式变化
-                    if (currentScrollPos > 50) {
-                        header.classList.add('py-2', 'shadow-md');
-                        header.classList.remove('py-4');
-                    } else {
-                        header.classList.add('py-4');
-                        header.classList.remove('py-2', 'shadow-md');
-                    }
-                    
-                    // 导航栏当前位置高亮 - 优化逻辑
-                    const sections = document.querySelectorAll('section[id]');
-                    const navLinks = document.querySelectorAll('.nav-link');
-                    
-                    // 重置所有链接样式
-                    navLinks.forEach(link => {
-                        link.classList.remove('text-stone-500', 'border-stone-500');
-                        link.classList.add('text-ink-600', 'border-transparent');
-                    });
-                    
-                    // 找到当前可视区域的section并高亮对应链接
-                    sections.forEach(section => {
-                        const sectionTop = section.offsetTop - 120;
-                        const sectionHeight = section.offsetHeight;
-                        const sectionId = section.getAttribute('id');
-                        
-                        if (currentScrollPos >= sectionTop && currentScrollPos < sectionTop + sectionHeight) {
-                            navLinks.forEach(link => {
-                                if (link.getAttribute('href') === `#${sectionId}`) {
-                                    link.classList.remove('text-ink-600', 'border-transparent');
-                                    link.classList.add('text-stone-500', 'border-stone-500');
-                                }
-                            });
-                        }
-                    });
-                    
-                    lastScrollPos = currentScrollPos;
-                }
-            }, 50); // 缩短防抖时间，提升响应性
-            
-            window.addEventListener('scroll', handleScroll);
-
-            // 平滑滚动 - 统一处理所有跳转
-            document.querySelectorAll('a[href^="#"], [onclick*="scrollIntoView"]').forEach(element => {
-                element.addEventListener('click', function (e) {
-                    // 如果是a标签，阻止默认行为
-                    if (this.tagName === 'A') {
-                        e.preventDefault();
-                        
-                        // 获取目标ID并滚动
-                        const targetId = this.getAttribute('href').substring(1);
-                        const targetElement = document.getElementById(targetId);
-                        if (targetElement) {
-                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    }
-                    
-                    // 关闭移动端菜单（如果打开）
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        // 导航滚动
+        document.querySelectorAll('a[href^="#"], button[onclick*="scrollIntoView"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href') || this.getAttribute('onclick').match(/#\w+/)[0];
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
+                        menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
                         menuBtn.setAttribute('aria-expanded', 'false');
                         mobileMenu.setAttribute('aria-hidden', 'true');
-                        menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
                     }
-                });
+                }
             });
+        });
 
-            // 表单提交处理 - 增强验证和反馈
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    
-                    // 验证表单
-                    if (!contactForm.checkValidity()) {
-                        // 显示原生验证提示
-                        contactForm.reportValidity();
+        // 3D模型控制
+        function open3DView() {
+            document.getElementById('modelView').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loadingOverlay').style.display = 'none';
+                }, 500);
+            }, 2000);
+        }
+
+        function close3DView() {
+            document.getElementById('modelView').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function refreshModel() {
+            const frame = document.getElementById('sketchfabFrame');
+            frame.src = frame.src;
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            document.getElementById('loadingOverlay').style.opacity = '1';
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loadingOverlay').style.display = 'none';
+                }, 500);
+            }, 2000);
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    showError('全屏模式启动失败，请重试');
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        function showError(msg) {
+            const err = document.getElementById('errorMessage');
+            err.textContent = msg;
+            err.style.display = 'block';
+            setTimeout(() => err.style.display = 'none', 3000);
+        }
+
+        // 轮播图
+        const carouselSlides = document.getElementById('carouselSlides');
+        const carouselPrev = document.getElementById('carouselPrev');
+        const carouselNext = document.getElementById('carouselNext');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        let currentIndex = 0;
+        const totalSlides = carouselDots.length;
+
+        function updateCarousel() {
+            carouselSlides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            carouselDots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentIndex);
+            });
+        }
+
+        carouselPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+
+        carouselNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        });
+
+        carouselDots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => {
+                currentIndex = idx;
+                updateCarousel();
+            });
+        });
+
+        // 自动轮播
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }, 5000);
+
+        // 表单提交
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('咨询信息已提交，我们将尽快与您联系！');
+            this.reset();
+        });
+
+        // 石佛羊小游戏主逻辑
+        (function () {
+            const canvas = document.getElementById('gameCanvas');
+            const ctx = canvas.getContext('2d');
+            const W = 1000, H = 550;
+            canvas.width = W; canvas.height = H;
+
+            let gameActive = true;
+            let gameWin = false;
+            let levelCleared = false;
+            let currentLevel = 1;
+            let score = 0;
+            let totalScore = 0;
+            const TARGET_SCORE = 8;
+
+            let starRating = 0;
+            let levelStartTime = 0;
+            let levelFinishTime = 0;
+
+            let worldWidth = 3200;
+            let cameraX = 0;
+            const GROUND_Y = H - 72;
+
+            const sheep = {
+                x: 400, y: GROUND_Y - 54,
+                width: 32, height: 56,
+                vx: 0, vy: 0,
+                speed: 5.2,
+                gravity: 0.7,
+                jumpPower: -11.5,
+                grounded: true,
+                walkCycle: 0, legSwing: 0, armSwing: 0
+            };
+
+            let obstacles = [];
+            let collectibles = [];
+            let portal = { x: 0, y: 0, width: 48, height: 56 };
+            let floatingTexts = [];
+
+            let leftPressed = false, rightPressed = false;
+            let jumpRequested = false;
+
+            const levelConfig = {
+                1: { skyTop: '#d4c094', skyBottom: '#b89a6e', groundLight: '#c9a16e', night: false, dusk: false, name: '白昼', sunColor: '#fff5b0' },
+                2: { skyTop: '#2a3a2a', skyBottom: '#142014', groundLight: '#6a5238', night: true, dusk: false, name: '黑夜', moonColor: '#f9f3cf' },
+                3: { skyTop: '#e0a56a', skyBottom: '#b56f3a', groundLight: '#b27d4c', night: false, dusk: true, name: '暮境', sunColor: '#ffaa66' }
+            };
+
+            function getCfg() { return levelConfig[currentLevel]; }
+            function updateUI() {
+                document.getElementById('scoreValue').innerText = score;
+                document.getElementById('needScore').innerText = TARGET_SCORE;
+                document.getElementById('levelNum').innerText = currentLevel;
+                document.getElementById('dayNight').innerText = getCfg().name;
+                document.getElementById('totalCollectedSpan').innerText = totalScore;
+                document.getElementById('totalScoreSpan').innerText = totalScore;
+            }
+
+            function showToastMsg(msg) {
+                let toastDiv = document.createElement('div');
+                toastDiv.className = 'toast-message';
+                toastDiv.innerText = msg;
+                document.body.appendChild(toastDiv);
+                setTimeout(() => toastDiv.remove(), 1600);
+            }
+
+            function generateLevelWorld() {
+                const cfg = getCfg();
+                worldWidth = 2600 + currentLevel * 300;
+                let startX = 350;
+                let generated = 0;
+                portal.x = worldWidth - 200;
+                portal.y = GROUND_Y - portal.height + 12;
+                obstacles = [];
+                collectibles = [];
+
+                let currentX = startX;
+                while (generated < TARGET_SCORE && currentX < portal.x - 150) {
+                    let forceCollect = (TARGET_SCORE - generated) > ((portal.x - currentX) / 250);
+                    if (forceCollect || (Math.random() < 0.55 && generated < TARGET_SCORE)) {
+                        collectibles.push({
+                            x: currentX + Math.random() * 60,
+                            y: GROUND_Y - 34,
+                            width: 24,
+                            height: 28,
+                            collected: false,
+                        });
+                        generated++;
+                    }
+                    if (Math.random() < 0.48) {
+                        let obsW = 28;
+                        let obsH = 48;
+                        obstacles.push({
+                            x: currentX + 20,
+                            width: obsW,
+                            height: obsH,
+                            y: GROUND_Y - obsH
+                        });
+                    }
+                    let step = 180 + Math.random() * 220;
+                    currentX += step;
+                }
+                while (generated < TARGET_SCORE) {
+                    let lastX = collectibles.length ? collectibles[collectibles.length - 1].x + 150 : portal.x - 180;
+                    collectibles.push({ x: lastX, y: GROUND_Y - 34, width: 24, height: 28, collected: false });
+                    generated++;
+                }
+                obstacles.sort((a, b) => a.x - b.x);
+                collectibles.sort((a, b) => a.x - b.x);
+            }
+
+            function resetCurrentLevel() {
+                score = 0;
+                gameActive = true;
+                gameWin = false;
+                levelCleared = false;
+                sheep.x = 350;
+                sheep.y = GROUND_Y - sheep.height;
+                sheep.vx = 0;
+                sheep.vy = 0;
+                sheep.grounded = true;
+                generateLevelWorld();
+                cameraX = 0;
+                updateUI();
+            }
+
+            function fullGameReset(targetLevel = null) {
+                if (targetLevel !== null) currentLevel = targetLevel;
+                else currentLevel = parseInt(document.getElementById('levelSelect').value);
+                totalScore = 0;
+                resetCurrentLevel();
+                document.getElementById('startTip').style.opacity = '1';
+                gameActive = true;
+                gameWin = false;
+                levelCleared = false;
+                updateUI();
+            }
+
+            function completeLevelWithStars(stars) {
+                if (levelCleared) return;
+                levelCleared = true;
+                gameActive = false;
+                starRating = stars;
+
+                showToastMsg(`✨ 第 ${currentLevel} 境过关！获得 ${stars} 星 ✨`);
+                for (let i = 0; i < stars; i++) {
+                    let starDiv = document.createElement('div');
+                    starDiv.innerText = '⭐';
+                    starDiv.style.position = 'fixed';
+                    starDiv.style.fontSize = '48px';
+                    starDiv.style.left = (window.innerWidth / 2 - 70 + i * 60) + 'px';
+                    starDiv.style.top = '38%';
+                    starDiv.style.zIndex = 210;
+                    starDiv.style.pointerEvents = 'none';
+                    starDiv.style.animation = 'starFloat 0.9s ease-out forwards';
+                    document.body.appendChild(starDiv);
+                    setTimeout(() => starDiv.remove(), 1000);
+                }
+
+                setTimeout(() => {
+                    if (levelCleared && !gameWin) {
+                        if (currentLevel < 3) {
+                            currentLevel++;
+                            resetCurrentLevel();
+                            gameActive = true;
+                            levelCleared = false;
+                            document.getElementById('startTip').style.opacity = '0';
+                            updateUI();
+                            showToastMsg(`🌟 进入第 ${currentLevel} 境 · 自动开启 🌟`);
+                        } else {
+                            gameWin = true;
+                            gameActive = false;
+                            levelCleared = false;
+                            updateUI();
+                            showToastMsg(`🏆 三境皆通！石佛羊功德圆满 🏆`);
+                        }
+                    }
+                }, 1300);
+            }
+
+            function updateGame() {
+                if (!gameActive || gameWin || levelCleared) return;
+
+                let move = 0;
+                if (leftPressed) move = -1;
+                if (rightPressed) move = 1;
+                sheep.vx = move * sheep.speed;
+                sheep.x += sheep.vx;
+
+                if (sheep.x < 100) sheep.x = 100;
+                if (sheep.x + sheep.width > worldWidth - 100) sheep.x = worldWidth - sheep.width - 100;
+
+                if (jumpRequested && sheep.grounded) {
+                    sheep.vy = sheep.jumpPower;
+                    sheep.grounded = false;
+                    jumpRequested = false;
+                }
+
+                sheep.vy += sheep.gravity;
+                sheep.y += sheep.vy;
+                if (sheep.y + sheep.height >= GROUND_Y) {
+                    sheep.y = GROUND_Y - sheep.height;
+                    sheep.vy = 0;
+                    sheep.grounded = true;
+                } else sheep.grounded = false;
+                if (sheep.y < 0) { sheep.y = 0; if (sheep.vy < 0) sheep.vy = 0; }
+
+                let targetCam = sheep.x + sheep.width / 2 - W / 2;
+                targetCam = Math.min(Math.max(targetCam, 0), worldWidth - W);
+                cameraX = targetCam;
+
+                const sheepRect = { x: sheep.x, y: sheep.y, w: sheep.width, h: sheep.height };
+                for (let obs of obstacles) {
+                    const obsRect = { x: obs.x, y: obs.y, w: obs.width, h: obs.height };
+                    if (sheepRect.x < obsRect.x + obsRect.w && sheepRect.x + sheepRect.w > obsRect.x &&
+                        sheepRect.y < obsRect.y + obsRect.h && sheepRect.y + sheepRect.h > obsRect.y) {
+                        resetCurrentLevel();
+                        showToastMsg(`❌ 撞到石佛 · 重开此境 ❌`);
                         return;
                     }
-                    
-                    const submitBtn = contactForm.querySelector('button[type="submit"]');
-                    if (submitBtn) {
-                        // 禁用按钮并显示加载状态
-                        submitBtn.disabled = true;
-                        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> 提交中...';
-                        
-                        // 模拟提交
-                        setTimeout(() => {
-                            // 创建成功提示
-                            const successAlert = document.createElement('div');
-                            successAlert.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50';
-                            successAlert.style.transition = 'opacity 0.5s ease-in-out';
-                            successAlert.textContent = '您的咨询已提交成功！我们将在1-2个工作日内与您联系。';
-                            document.body.appendChild(successAlert);
-                            
-                            // 3秒后移除提示
-                            setTimeout(() => {
-                                successAlert.style.opacity = '0';
-                                setTimeout(() => successAlert.remove(), 500);
-                            }, 3000);
-                            
-                            // 重置表单并恢复按钮状态
-                            contactForm.reset();
-                            submitBtn.disabled = false;
-                            submitBtn.innerHTML = '提交咨询 <i class="fa-solid fa-paper-plane ml-2"></i>';
-                        }, 1200);
-                    }
-                });
-                
-                // 实时验证手机号
-                const phoneInput = document.getElementById('phone');
-                if (phoneInput) {
-                    phoneInput.addEventListener('input', function() {
-                        const phonePattern = /^1[3-9]\d{9}$/;
-                        if (this.value && !phonePattern.test(this.value)) {
-                            this.setCustomValidity('请输入有效的11位手机号码');
-                        } else {
-                            this.setCustomValidity('');
+                }
+
+                for (let col of collectibles) {
+                    if (!col.collected) {
+                        const colRect = { x: col.x, y: col.y, w: col.width, h: col.height };
+                        if (sheepRect.x < colRect.x + colRect.w && sheepRect.x + sheepRect.w > colRect.x &&
+                            sheepRect.y < colRect.y + colRect.h && sheepRect.y + sheepRect.h > colRect.y) {
+                            col.collected = true;
+                            score++;
+                            totalScore++;
+                            updateUI();
+                            floatingTexts.push({ x: col.x + col.width / 2, y: col.y, life: 30, text: '+1' });
                         }
-                    });
+                    }
+                }
+
+                for (let i = 0; i < floatingTexts.length; i++) {
+                    floatingTexts[i].life--;
+                    floatingTexts[i].y -= 1.2;
+                }
+                floatingTexts = floatingTexts.filter(t => t.life > 0);
+
+                const portalRect = { x: portal.x, y: portal.y, w: portal.width, h: portal.height };
+                if (score >= TARGET_SCORE &&
+                    sheepRect.x < portalRect.x + portalRect.w && sheepRect.x + sheepRect.w > portalRect.x &&
+                    sheepRect.y < portalRect.y + portalRect.h && sheepRect.y + sheepRect.h > portalRect.y) {
+                    levelFinishTime = performance.now();
+                    let elapsed = levelFinishTime - levelStartTime;
+                    if (elapsed <= 0) elapsed = 1;
+                    let stars = 3;
+                    if (elapsed > 30000) stars = 1;
+                    else if (elapsed > 18000) stars = 2;
+                    else stars = 3;
+                    completeLevelWithStars(stars);
+                    return;
+                }
+
+                if (sheep.grounded && Math.abs(sheep.vx) > 0.1) {
+                    sheep.walkCycle = (sheep.walkCycle + 0.28) % (Math.PI * 2);
+                    sheep.legSwing = Math.sin(sheep.walkCycle) * 0.65;
+                    sheep.armSwing = Math.sin(sheep.walkCycle * 1.2) * 0.75;
+                } else {
+                    sheep.legSwing = 0; sheep.armSwing = 0;
                 }
             }
 
-            // 窗口大小变化时重新计算布局
-            window.addEventListener('resize', debounce(() => {
-                // 重新设置section高度
-                const sections = document.querySelectorAll('section');
-                sections.forEach(section => {
-                    if (section.id !== 'home') {
-                        section.style.minHeight = window.innerWidth < 768 ? 'auto' : '100vh';
-                    }
-                });
-            }, 100));
-            
-            // 初始化布局
-            window.dispatchEvent(new Event('resize'));
-
-            // ========== 轮播图功能 ==========
-            const carouselSlides = document.getElementById('carouselSlides');
-            const carouselPrev = document.getElementById('carouselPrev');
-            const carouselNext = document.getElementById('carouselNext');
-            const carouselDots = document.getElementById('carouselDots').querySelectorAll('.carousel-dot');
-            let currentSlideIndex = 0;
-            const totalSlides = carouselDots.length;
-            let carouselInterval;
-
-            // 切换轮播图
-            function goToSlide(index) {
-                // 边界处理
-                if (index < 0) index = totalSlides - 1;
-                if (index >= totalSlides) index = 0;
-                
-                // 更新轮播位置
-                carouselSlides.style.transform = `translateX(-${index * 100}%)`;
-                
-                // 更新指示器状态
-                carouselDots.forEach((dot, i) => {
-                    if (i === index) {
-                        dot.classList.add('active');
-                    } else {
-                        dot.classList.remove('active');
-                    }
-                });
-                
-                currentSlideIndex = index;
+            function jump() {
+                if (!gameActive || gameWin || levelCleared) return;
+                jumpRequested = true;
             }
 
-            // 上一张
-            function prevSlide() {
-                goToSlide(currentSlideIndex - 1);
-                resetCarouselInterval();
-            }
+            function drawBackground() {
+                const cfg = getCfg();
+                let grad = ctx.createLinearGradient(0, 0, 0, H * 0.6);
+                grad.addColorStop(0, cfg.skyTop);
+                grad.addColorStop(1, cfg.skyBottom);
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, W, H);
 
-            // 下一张
-            function nextSlide() {
-                goToSlide(currentSlideIndex + 1);
-                resetCarouselInterval();
-            }
-
-            // 自动轮播
-            function startCarousel() {
-                carouselInterval = setInterval(nextSlide, 5000); // 5秒切换一次
-            }
-
-            // 重置自动轮播计时器
-            function resetCarouselInterval() {
-                clearInterval(carouselInterval);
-                startCarousel();
-            }
-
-            // 绑定轮播事件
-            carouselPrev.addEventListener('click', prevSlide);
-            carouselNext.addEventListener('click', nextSlide);
-            
-            // 点击指示器切换
-            carouselDots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    goToSlide(index);
-                    resetCarouselInterval();
-                });
-            });
-
-            // 初始化轮播
-            startCarousel();
-
-            // ========== 图片画廊查看器功能 ==========
-            // 图片数组 - 更新普贤菩萨造像图片链接
-            const galleryImages = [
-                "https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/7052068178124a949e526030d572e029.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032220240004FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774786440&x-signature=7c4n7J1q2K3Qo8D8z9L6X5C7V8B9N8M7B6V5C4X3Z2A1S9D8F7G6H5J4K3L2M1N0B9V8C7X6D5S4A3F2G1H0J9K8L7M6N5B4V3C2X1D0S9A8F7G6H5J4K3L2M1N0B9V8C7X6D5S4A3F2G1H0J9K8L7M6N5B4V3C2X1D0S9A8F7G6H5J4K3L2M1N0=",
-                "https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e84d1c603d244e02a99ff7c97c88b3da.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=cTrgROLc6ik3%2BW2drFlDM%2FxKw2w%3D",
-                "https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c23d2398bc3f4e6893492c2a8c6e1a5c.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=TuoRJA4z0JOe0qzm0xV4mshVmwI%3D",
-                "https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5f7839a3e18d421f9139795ff1001251.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XJnUoBF37p6mfGv9t6gafdS6B%2Fs%3D",
-                "https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/a034f9a40170477c97c978ee202b1cf8.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=JiU5eU5gBMi905viJS99hvHOzPg%3D",
-                "https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/86d6b3f751554a0bb83ff020fb15bf69.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XIX34ZK0ce3m4vFYu22lQK4eyXg%3D",
-                "https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/153821f5156e44a394fbd3099114f014.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=noMAohoVTcx%2FFOmp8dQvepJJx%2B8%3D",
-                "https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/6af4944e37054baa8488f80f03ce4a8e.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=f4VLak1QD0%2B2YGFR9yIDRIu549c%3D"
-            ];
-            
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightboxImg');
-            const lightboxClose = document.getElementById('lightboxClose');
-            const lightboxPrev = document.getElementById('lightboxPrev');
-            const lightboxNext = document.getElementById('lightboxNext');
-            let currentImageIndex = 0;
-            
-            // 打开图片查看器
-            document.querySelectorAll('.gallery-item img').forEach(img => {
-                img.addEventListener('click', function() {
-                    currentImageIndex = parseInt(this.getAttribute('data-index'));
-                    lightboxImg.src = galleryImages[currentImageIndex];
-                    lightbox.classList.add('active');
-                    document.body.style.overflow = 'hidden'; // 禁止背景滚动
-                });
-            });
-            
-            // 关闭图片查看器
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = ''; // 恢复背景滚动
-            }
-            
-            lightboxClose.addEventListener('click', closeLightbox);
-            
-            // 点击背景关闭查看器
-            lightbox.addEventListener('click', function(e) {
-                if (e.target === lightbox) {
-                    closeLightbox();
+                let sunX = 120 - cameraX;
+                if (cfg.night) {
+                    ctx.fillStyle = '#f9f3cf';
+                    ctx.beginPath();
+                    ctx.arc(sunX + 780, 85, 32, 0, Math.PI * 2);
+                    ctx.fill();
+                } else if (cfg.dusk) {
+                    ctx.fillStyle = '#ffa559';
+                    ctx.beginPath();
+                    ctx.arc(sunX + 750, 100, 38, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    ctx.fillStyle = '#fff176';
+                    ctx.beginPath();
+                    ctx.arc(sunX + 120, 75, 36, 0, Math.PI * 2);
+                    ctx.fill();
                 }
-            });
-            
-            // 键盘控制
-            document.addEventListener('keydown', function(e) {
-                if (lightbox.classList.contains('active')) {
-                    if (e.key === 'Escape') {
-                        closeLightbox();
-                    } else if (e.key === 'ArrowLeft') {
-                        showPrevImage();
-                    } else if (e.key === 'ArrowRight') {
-                        showNextImage();
-                    }
+
+                ctx.fillStyle = '#7f6242';
+                for (let i = 0; i < 15; i++) {
+                    let xOff = (i * 100 - cameraX * 0.3) % (W + 300) - 100;
+                    ctx.beginPath();
+                    ctx.moveTo(xOff, H - 160);
+                    ctx.lineTo(xOff + 60, H - 220);
+                    ctx.lineTo(xOff + 120, H - 160);
+                    ctx.fill();
                 }
-            });
-            
-            // 上一张图片
-            function showPrevImage() {
-                currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-                lightboxImg.src = galleryImages[currentImageIndex];
+                ctx.fillStyle = '#9c7852';
+                for (let i = 0; i < 12; i++) {
+                    let xOff = (i * 130 - cameraX * 0.5) % (W + 300) - 80;
+                    ctx.beginPath();
+                    ctx.moveTo(xOff, H - 140);
+                    ctx.lineTo(xOff + 50, H - 190);
+                    ctx.lineTo(xOff + 100, H - 140);
+                    ctx.fill();
+                }
+
+                ctx.fillStyle = cfg.groundLight;
+                ctx.fillRect(0, GROUND_Y - 10, W, 12);
+                ctx.fillStyle = '#c49a62';
+                ctx.fillRect(0, GROUND_Y - 4, W, 8);
+                ctx.fillStyle = '#8a6742';
+                for (let i = 0; i < 25; i++) ctx.fillRect((i * 50 - cameraX * 0.7) % W, GROUND_Y - 1, 25, 5);
+                ctx.fillStyle = '#ac7a48';
+                ctx.fillRect(0, GROUND_Y, W, H - GROUND_Y);
             }
-            
-            // 下一张图片
-            function showNextImage() {
-                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-                lightboxImg.src = galleryImages[currentImageIndex];
+
+            function drawObstacles() {
+                for (let obs of obstacles) {
+                    let x = obs.x - cameraX;
+                    let y = obs.y;
+                    if (x + obs.width < 0 || x > W) continue;
+                    ctx.fillStyle = '#9e7b52';
+                    ctx.fillRect(x + 4, y + 8, 20, 32);
+                    ctx.fillStyle = '#c49a6a';
+                    ctx.fillRect(x + 8, y, 12, 12);
+                    ctx.fillStyle = '#dbb87a';
+                    ctx.fillRect(x + 10, y - 2, 8, 6);
+                    ctx.fillStyle = '#3a2a1c';
+                    ctx.fillRect(x + 12, y + 2, 2, 2);
+                    ctx.fillRect(x + 18, y + 2, 2, 2);
+                    ctx.fillStyle = '#b8783a';
+                    ctx.fillRect(x + 6, y + 20, 16, 4);
+                    ctx.fillRect(x + 8, y + 28, 12, 4);
+                    ctx.fillStyle = '#ffdd99';
+                    ctx.font = "14px monospace";
+                    ctx.fillText("卍", x + 12, y + 38);
+                }
             }
-            
-            lightboxPrev.addEventListener('click', showPrevImage);
-            lightboxNext.addEventListener('click', showNextImage);
-        });
+
+            function drawCollectibles() {
+                for (let col of collectibles) {
+                    if (col.collected) continue;
+                    let x = col.x - cameraX;
+                    let y = col.y;
+                    if (x + col.width < 0 || x > W) continue;
+                    ctx.fillStyle = '#6a9c4a';
+                    ctx.fillRect(x + 10, y + 18, 4, 8);
+                    ctx.fillStyle = '#f5a9c4';
+                    for (let p = 0; p < 6; p++) {
+                        let angle = p * Math.PI * 2 / 6;
+                        let px = x + 12 + Math.cos(angle) * 8;
+                        let py = y + 12 + Math.sin(angle) * 6;
+                        ctx.beginPath();
+                        ctx.ellipse(px, py, 5, 4, 0, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    ctx.fillStyle = '#ffd966';
+                    ctx.beginPath();
+                    ctx.ellipse(x + 12, y + 12, 4, 4, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.fillStyle = '#ffeeaa';
+                    ctx.fillRect(x + 10, y + 6, 2, 2);
+                }
+            }
+
+            function drawPortal() {
+                let px = portal.x - cameraX;
+                let py = portal.y;
+                if (px + portal.width < 0 || px > W) return;
+                ctx.fillStyle = '#9e7b52';
+                ctx.fillRect(px + 8, py + 12, portal.width - 16, portal.height - 16);
+                ctx.fillStyle = '#dbaa6a';
+                ctx.fillRect(px + 4, py + 5, portal.width - 8, 13);
+                for (let i = 0; i < 3; i++) ctx.fillRect(px + 12 + i * 12, py + 26, 6, 22);
+                ctx.fillStyle = '#ffdd99';
+                ctx.font = "bold 32 '幼圆'";
+                ctx.fillText("⛩️", px + 14, py + 46);
+            }
+
+            function drawSheep() {
+                let sx = sheep.x - cameraX;
+                let sy = sheep.y;
+                ctx.fillStyle = '#e8dcc0';
+                ctx.fillRect(sx + 8, sy + 14, 22, 42);
+                ctx.fillStyle = '#b5452c';
+                ctx.fillRect(sx + 6, sy + 20, 26, 28);
+                ctx.fillStyle = '#d4693a';
+                for (let i = 0; i < 3; i++) ctx.fillRect(sx + 8 + i * 6, sy + 24, 4, 20);
+                ctx.fillStyle = '#f5ebcd';
+                ctx.fillRect(sx + 10, sy + 4, 18, 18);
+                ctx.fillStyle = '#ad784e';
+                ctx.fillRect(sx + 8, sy + 2, 6, 8);
+                ctx.fillRect(sx + 24, sy + 2, 6, 8);
+                ctx.fillStyle = '#c9945c';
+                ctx.fillRect(sx + 5, sy + 1, 4, 6);
+                ctx.fillRect(sx + 29, sy + 1, 4, 6);
+                ctx.fillStyle = '#2f2418';
+                ctx.fillRect(sx + 14, sy + 10, 3, 4);
+                ctx.fillRect(sx + 21, sy + 10, 3, 4);
+                ctx.fillStyle = '#fff2cf';
+                ctx.fillRect(sx + 15, sy + 9, 1, 2);
+                ctx.fillRect(sx + 22, sy + 9, 1, 2);
+                ctx.fillStyle = '#e09d32';
+                ctx.fillRect(sx + 18, sy + 6, 2, 2);
+                ctx.fillStyle = '#c48f42';
+                for (let i = 0; i < 4; i++) ctx.fillRect(sx + 5 + i * 6, sy + 30, 3, 3);
+                let arm = sheep.armSwing * 0.9;
+                ctx.fillStyle = '#c25a38';
+                ctx.fillRect(sx + 4, sy + 26 + arm * 2, 6, 14);
+                ctx.fillRect(sx + 28, sy + 26 - arm * 2, 6, 14);
+                let legOff = Math.floor(sheep.legSwing * 4);
+                ctx.fillStyle = '#9e6a44';
+                ctx.fillRect(sx + 10, sy + 48 + (legOff > 0 ? 2 : 0), 6, 12);
+                ctx.fillRect(sx + 22, sy + 48 + (legOff < 0 ? 2 : 0), 6, 12);
+            }
+
+            function drawUI() {
+                ctx.font = "bold 32 '幼圆', 'Yuanti SC'";
+                ctx.fillStyle = '#fff5e4';
+                ctx.fillText("🐏 石佛羊·羊山石径", 28, 54);
+
+                for (let t of floatingTexts) {
+                    ctx.font = "bold 24 '幼圆'";
+                    ctx.fillStyle = '#ffd966';
+                    ctx.fillText(t.text, t.x - cameraX - 12, t.y - 10);
+                }
+
+                if (gameWin) {
+                    ctx.font = "34 '幼圆'";
+                    ctx.fillStyle = "#ffdd99";
+                    ctx.fillText("✨ 三境皆通 · 石佛归宗 ✨", W / 2 - 280, H / 2 - 30);
+                    ctx.font = "28 '幼圆'";
+                    ctx.fillStyle = "#f7bc6e";
+                    ctx.fillText("莲花永绽，禅心圆满", W / 2 - 140, H / 2 + 40);
+                }
+                if (levelCleared && !gameWin) {
+                    ctx.font = "30 '幼圆'";
+                    ctx.fillStyle = "#ffeaac";
+                    ctx.fillText(`⭐ 获得 ${starRating} 星 · 前往下一境 ⭐`, W / 2 - 230, H / 3);
+                }
+                if (score >= TARGET_SCORE && !levelCleared && !gameWin && gameActive) {
+                    ctx.font = "bold 24 '幼圆'";
+                    ctx.fillStyle = "#fad48c";
+                    ctx.fillText("✦ 莲花已满！速往传送门 ✦", portal.x - cameraX - 55, portal.y - 24);
+                }
+                ctx.font = "22 '幼圆'";
+                ctx.fillStyle = "#fff0c0";
+                ctx.fillText("← → 移动  |  ↑/空格 跳跃", 30, H - 28);
+            }
+
+            function animate() {
+                updateGame();
+                drawBackground();
+                drawObstacles();
+                drawCollectibles();
+                drawPortal();
+                drawSheep();
+                drawUI();
+                requestAnimationFrame(animate);
+            }
+
+            function bindEvents() {
+                const restartBtn = document.getElementById('restartBtn');
+                const applyLevelBtn = document.getElementById('applyLevelBtn');
+                const levelSelect = document.getElementById('levelSelect');
+
+                restartBtn.addEventListener('click', () => {
+                    fullGameReset(currentLevel);
+                    showToastMsg(`🔄 重开石境 · 回归初心 🔄`);
+                });
+                applyLevelBtn.addEventListener('click', () => {
+                    let newLevel = parseInt(levelSelect.value);
+                    fullGameReset(newLevel);
+                    showToastMsg(`✨ 进入第 ${newLevel} 境 ✨`);
+                });
+
+                window.addEventListener('keydown', (e) => {
+                    const key = e.key;
+                    if (key === 'ArrowLeft' || key === 'a' || key === 'A') { leftPressed = true; e.preventDefault(); }
+                    if (key === 'ArrowRight' || key === 'd' || key === 'D') { rightPressed = true; e.preventDefault(); }
+                    if (key === 'ArrowUp' || key === 'w' || key === 'W' || key === ' ' || key === 'Space') {
+                        e.preventDefault();
+                        jump();
+                    }
+                    if (key === 'r' || key === 'R') fullGameReset(currentLevel);
+                });
+                window.addEventListener('keyup', (e) => {
+                    if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') leftPressed = false;
+                    if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') rightPressed = false;
+                });
+                canvas.addEventListener('touchstart', (e) => { e.preventDefault(); jump(); });
+                canvas.addEventListener('touchmove', (e) => { e.preventDefault(); }, { passive: false });
+            }
+
+            function init() {
+                fullGameReset(1);
+                levelStartTime = performance.now();
+                bindEvents();
+                animate();
+            }
+            init();
+        })();
     </script>
 </body>
 </html>
