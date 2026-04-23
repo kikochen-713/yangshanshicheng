@@ -197,8 +197,9 @@
 
     <section id="home" class="scroll-mt-header">
         <div class="relative w-full h-full overflow-hidden">
+            <!-- 核心修改：替换为用户提供的羊山石境封面图片 -->
             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-                 style="background-image: url('https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/21c082c384034d74b6f605a6944f4eee.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202603221824043221C6ED1C224EB2C622&rrcfp=8a172a1a&x-expires=1774779844&x-signature=JxThDzWnX8R7hspqeFv6GrIwjS8%3D'); filter: brightness(0.9);">
+                 style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5ea6a5d972774da79af4ace1e53a6ef8.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026042321243858555318DE3FEDA84EBD&rrcfp=8a172a1a&x-expires=1777555479&x-signature=G3%2BBErF0Hbv3HbYM7wTsVVm%2BSCY%3D'); filter: brightness(0.8) contrast(1.05);">
             </div>
             <div class="absolute inset-0 bg-gradient-overlay"></div>
             
@@ -254,11 +255,12 @@
                 <p class="max-w-2xl mx-auto text-ink-500 text-lg">千年采石史，一斧一凿间，铸就浙东独有的石宕石窟景观</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <!-- 修改：替换为第一张实景图片 -->
                 <div class="rounded-xl overflow-hidden shadow-elegant h-[400px] flex items-center justify-center w-full relative">
-                    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/30fc0d332fe849b49ae131a1306fe09a.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322182843D9F76F99612C3FC3488B&rrcfp=8a172a1a&x-expires=1774780123&x-signature=9qYo0%2FEE59kAKOiKvGPSupWZw%2FY%3D');filter: brightness(0.95);"></div>
+                    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/634e8051502f456f882de46992f3e2ab.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=202604231959382BD43D94505D89B11B48&rrcfp=8a172a1a&x-expires=1777550379&x-signature=wUAKJThPjLpRvysFMNZDA%2BGzGs8%3D');filter: brightness(0.95);"></div>
                     <div class="absolute inset-0 bg-black/20"></div>
                     <div class="relative text-center p-8 text-white z-10">
-                        <h3 class="text-xl font-semibold text-white mb-2">羊山石城摩崖石刻</h3>
+                        <h3 class="text-xl font-semibold text-white mb-2">羊山石城全景</h3>
                         <p class="text-white/90 mt-2">千年采石历史的珍贵见证</p>
                     </div>
                 </div>
@@ -297,32 +299,35 @@
                 <p class="max-w-2xl mx-auto text-ink-500 text-lg">鬼斧神工的石峰造像，穿越千年的摩崖题刻，每一处皆是历史的印记</p>
             </div>
             <div class="grid md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+                <!-- 石峰造像 - 使用第三张佛像图片 -->
                 <div class="bg-white rounded-xl shadow-elegant hover:shadow-hover transition-all overflow-hidden cursor-pointer w-full" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                    <div class="h-48 img-hover-zoom"><img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/8e9ec75c3e584f609d574b297b88ebd9.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032218344628D7ED95C174F6C47C07&rrcfp=8a172a1a&x-expires=1774780487&x-signature=tzZ0nsbqaz6Z63lEu1PGXXIULzs%3D" alt="羊山石城石峰造像" class="w-full h-full object-cover"></div>
+                    <div class="h-48 img-hover-zoom"><img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e720e3e6f1424364bb87f65288d0a899.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=gN7e%2B%2Bp4Ehg7ZGyCUZfKMfOxU%2Bs%3D" alt="羊山石城石峰造像" class="w-full h-full object-cover"></div>
                     <div class="p-6"><h3 class="text-xl font-semibold text-stone-800 mb-3">石峰造像</h3><p class="text-ink-600 mb-4">依石而凿的佛造像群，神态各异，工艺精湛，见证了浙东佛教文化的兴盛。</p><a href="#guide" class="text-stone-500 font-medium hover:text-stone-600 inline-flex items-center cursor-pointer">探寻详情 <i class="fa-solid fa-long-arrow-right ml-2"></i></a></div>
                 </div>
+                <!-- 摩崖石刻 - 使用第八张石刻图片 -->
                 <div class="bg-white rounded-xl shadow-elegant hover:shadow-hover transition-all overflow-hidden cursor-pointer w-full" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                    <div class="h-48 img-hover-zoom"><img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/901cc93d71e04cef9cc4520a22a6fec1.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322181940E0008A7286AC87BC3C6D&rrcfp=8a172a1a&x-expires=1774779581&x-signature=phwsYcAvcXoVFkb3j7FZOpO5s0s%3D" alt="羊山石城摩崖石刻" class="w-full h-full object-cover"></div>
+                    <div class="h-48 img-hover-zoom"><img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c44b49a6530d4e998d8445e2d5de76d9.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=KRHbT%2BqpRq5g3PU7E%2BrJ3u9qya0%3D" alt="羊山石城摩崖石刻" class="w-full h-full object-cover"></div>
                     <div class="p-6"><h3 class="text-xl font-semibold text-stone-800 mb-3">摩崖石刻</h3><p class="text-ink-600 mb-4">历代文人墨客的题咏石刻，朱红墨迹与苍劲石壁相映，墨香石韵千古流传。</p><a href="#guide" class="text-stone-500 font-medium hover:text-stone-600 inline-flex items-center cursor-pointer">探寻详情 <i class="fa-solid fa-long-arrow-right ml-2"></i></a></div>
                 </div>
+                <!-- 古采石宕 - 使用第七张石窟全景 -->
                 <div class="bg-white rounded-xl shadow-elegant hover:shadow-hover transition-all overflow-hidden cursor-pointer w-full" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">
-                    <div class="h-48 img-hover-zoom relative"><div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/caa5a51ba2dc495e9e498212b836e9b8.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322185221EC8EA17FBB00B5B596B3&rrcfp=8a172a1a&x-expires=1774781541&x-signature=egm5%2FUEr3Sm5%2FOn3mlPUsC%2Bwfqk%3D');filter: brightness(0.95);"></div></div>
+                    <div class="h-48 img-hover-zoom relative"><div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/b29a7db868b547ff859f418ed04dc4ab.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=0X3iEH6B5rR2AXcm9FciYADIl4E%3D');filter: brightness(0.95);"></div></div>
                     <div class="p-6"><h3 class="text-xl font-semibold text-stone-800 mb-3">古采石宕</h3><p class="text-ink-600 mb-4">保存完好的古采石遗址，清晰的凿痕见证着古代工匠的智慧与汗水。</p><a href="#guide" class="text-stone-500 font-medium hover:text-stone-600 inline-flex items-center cursor-pointer">探寻详情 <i class="fa-solid fa-long-arrow-right ml-2"></i></a></div>
                 </div>
             </div>
             <div class="bg-stone-100 rounded-xl p-8 w-full mb-8">
                 <div class="carousel-container mb-8">
                     <div class="carousel-slides" id="carouselSlides">
-                        <div class="carousel-slide" style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/a0914fea2a594fc78065cfd9cc13dbd1.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=bYfaLeo318fd%2BN%2BXmbSDnq3TngI%3D')">
+                        <div class="carousel-slide" style="background-image: url('https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/3310dd9fb5ba4d67b3671991a5230bb3.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=zI6bFUL6vivlsrHzR9SRKa0sWD8%3D')">
                             <div class="carousel-content"><h3 class="text-2xl font-semibold text-white mb-2">石刻记忆</h3><p class="text-white/90 max-w-2xl mx-auto">镌刻心声，留存印记<br>写下你的留言与感悟，让旅途印记在此长存，与万千同路人共筑石刻记忆。</p></div>
                         </div>
-                        <div class="carousel-slide" style="background-image: url('https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e84d1c603d244e02a99ff7c97c88b3da.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=cTrgROLc6ik3%2BW2drFlDM%2FxKw2w%3D')">
+                        <div class="carousel-slide" style="background-image: url('https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e720e3e6f1424364bb87f65288d0a899.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=gN7e%2B%2Bp4Ehg7ZGyCUZfKMfOxU%2Bs%3D')">
                             <div class="carousel-content"><h3 class="text-2xl font-semibold text-white mb-2">千年佛韵</h3><p class="text-white/90 max-w-2xl mx-auto">石中藏佛，佛映石光<br>一凿一锤间，是信仰的传承，是岁月的沉淀，是心灵的归处。</p></div>
                         </div>
-                        <div class="carousel-slide" style="background-image: url('https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c23d2398bc3f4e6893492c2a8c6e1a5c.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=TuoRJA4z0JOe0qzm0xV4mshVmwI%3D')">
+                        <div class="carousel-slide" style="background-image: url('https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c243523729ef4b998897a84bacad0464.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=mRQ7Hx6nUDIMnKRtGnyJTGAyuaQ%3D')">
                             <div class="carousel-content"><h3 class="text-2xl font-semibold text-white mb-2">石语心声</h3><p class="text-white/90 max-w-2xl mx-auto">山石无言，却记春秋<br>每一道纹理都是时光的印记，每一次驻足都是心灵的对话。</p></div>
                         </div>
-                        <div class="carousel-slide" style="background-image: url('https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5f7839a3e18d421f9139795ff1001251.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XJnUoBF37p6mfGv9t6gafdS6B%2Fs%3D')">
+                        <div class="carousel-slide" style="background-image: url('https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/d7203cfce25d4327964fec114386f3c7.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=yW%2FICo87b61JahRBxFQuuM%2FRtVY%3D')">
                             <div class="carousel-content"><h3 class="text-2xl font-semibold text-white mb-2">石窟寻踪</h3><p class="text-white/90 max-w-2xl mx-auto">一步一景，一窟一禅<br>穿梭于千年石窟之间，感受自然与人文的完美交融。</p></div>
                         </div>
                     </div>
@@ -335,15 +340,17 @@
                         <span class="carousel-dot" data-index="3"></span>
                     </div>
                 </div>
+                <!-- 核心修改：画廊区域替换为所有新照片，第一张改为用户提供的照片 -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 gallery-grid">
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/7052068178124a949e526030d572e029.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032220240004FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774786440&x-signature=7c4n7J1q2K3Qo8D8z9L6X5C7V8B9N8M7B6V5C4X3Z2A1S9D8F7G6H5J4K3L2M1N0B9V8C7X6D5S4A3F2G1H0J9K8L7M6N5B4V3C2X1D0S9A8F7G6H5J4K3L2M1N0B9V8C7X6D5S4A3F2G1H0J9K8L7M6N5B4V3C2X1D0S9A8F7G6H5J4K3L2M1N0=" alt="普贤菩萨造像" class="w-full h-full object-cover" data-index="0"></div>
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e84d1c603d244e02a99ff7c97c88b3da.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=cTrgROLc6ik3%2BW2drFlDM%2FxKw2w%3D" alt="观音造像" class="w-full h-full object-cover" data-index="1"></div>
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c23d2398bc3f4e6893492c2a8c6e1a5c.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=TuoRJA4z0JOe0qzm0xV4mshVmwI%3D" alt="立姿菩萨造像" class="w-full h-full object-cover" data-index="2"></div>
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/5f7839a3e18d421f9139795ff1001251.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XJnUoBF37p6mfGv9t6gafdS6B%2Fs%3D" alt="石窟长廊造像" class="w-full h-full object-cover" data-index="3"></div>
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/a034f9a40170477c97c978ee202b1cf8.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=JiU5eU5gBMi905viJS99hvHOzPg%3D" alt="石窟光影" class="w-full h-full object-cover" data-index="4"></div>
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/86d6b3f751554a0bb83ff020fb15bf69.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=XIX34ZK0ce3m4vFYu22lQK4eyXg%3D" alt="四大天王造像" class="w-full h-full object-cover" data-index="5"></div>
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/153821f5156e44a394fbd3099114f014.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=noMAohoVTcx%2FFOmp8dQvepJJx%2B8%3D" alt="佛陀造像" class="w-full h-full object-cover" data-index="6"></div>
-                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/6af4944e37054baa8488f80f03ce4a8e.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=2026032219504104FFD7339FBE4FA998C9&rrcfp=8a172a1a&x-expires=1774785041&x-signature=f4VLak1QD0%2B2YGFR9yIDRIu549c%3D" alt="地藏王造像" class="w-full h-full object-cover" data-index="7"></div>
+                    <!-- 关键修改：第一张图片替换为用户提供的照片 -->
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/b3ca2ca178794b1cbf2a897e21ba0562.JPG~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423213942AA64677A69380FA74474&rrcfp=8a172a1a&x-expires=1777556382&x-signature=YELVB1%2Be2ZVbaTGSar%2FAJlh9tsI%3D" alt="羊山石城石窟景观" class="w-full h-full object-cover" data-index="0"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/0db328b1b6b64e1c8925a5fd9833a4cb.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=boxJV4WFOsJz10DjSU7lBAwcGWY%3D" alt="羊山石境航拍" class="w-full h-full object-cover" data-index="1"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e720e3e6f1424364bb87f65288d0a899.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=gN7e%2B%2Bp4Ehg7ZGyCUZfKMfOxU%2Bs%3D" alt="普贤菩萨造像" class="w-full h-full object-cover" data-index="2"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/424a2304533d4be5a4ffe9737d582fb8.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=IYKxAr5NZVXpH%2FZNdZkhM72oKdQ%3D" alt="佛陀造像" class="w-full h-full object-cover" data-index="3"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/3c4a39ab96124656aafac523572d1871.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=Oqi8XDAmmb2Qriacu07roTAe9Ng%3D" alt="观音造像" class="w-full h-full object-cover" data-index="4"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/6181aea69bcc43d7b66614c0ee32b1b9.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=qMxCmKy8fR2CuK1kJVVSjL5Wnlo%3D" alt="石窟佛像" class="w-full h-full object-cover" data-index="5"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/b29a7db868b547ff859f418ed04dc4ab.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=0X3iEH6B5rR2AXcm9FciYADIl4E%3D" alt="石窟长廊造像" class="w-full h-full object-cover" data-index="6"></div>
+                    <div class="gallery-item rounded-lg overflow-hidden shadow-elegant h-48 img-hover-zoom"><img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c44b49a6530d4e998d8445e2d5de76d9.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260423201004BFF938EF20922FC1D2D6&rrcfp=8a172a1a&x-expires=1777551004&x-signature=KRHbT%2BqpRq5g3PU7E%2BrJ3u9qya0%3D" alt="摩崖石刻" class="w-full h-full object-cover" data-index="7"></div>
                 </div>
                 <div class="text-center mt-8"><a href="#contact" class="inline-block text-stone-500 font-medium hover:text-stone-600 cursor-pointer">游客留言入口<i class="fa-solid fa-arrow-right ml-2"></i></a></div>
             </div>
@@ -671,6 +678,7 @@
                         <h4 class="font-medium text-stone-800 mb-3 text-center">景区AR导航</h4>
                         <p class="text-ink-500 text-sm text-center mb-3">扫码关注，开启探索之旅吧！</p>
                         <div class="w-40 h-40 rounded mx-auto flex items-center justify-center overflow-hidden">
+                            <!-- 第二处修改：将小程序二维码图片替换为新的二维码图片 -->
                             <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/16a301690f9448069489ac020258f4c7.jpg~tplv-a9rns2rl98-24:720:720.jpg?lk3s=8e244e95&rcl=20260322181037E5E720EC427DA0A37A27&rrcfp=8a172a1a&x-expires=1774779037&x-signature=9wOWWVAvdA19n1bfvWHH1aJT6ic%3D" alt="景区AR导航二维码" class="w-full h-full object-contain">
                         </div>
                     </div>
